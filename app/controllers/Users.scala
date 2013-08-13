@@ -20,12 +20,18 @@ object Users extends Controller{
   }
 
   def login = Action(parse.json) { request =>
+    val json = request.body
+    System.out.println("User: " + json \\ "user")
+    System.out.println("Pass: " + json \\ "pass")
     System.out.println("JSON " + request.body)
     Ok
   }
 
   def register = Action(parse.json) { request =>
-    System.out.println("JSON " + request.body)
+    val json = request.body
+    System.out.println("User: " + json \\ "user" )
+    System.out.println("Pass: " + json \\ "pass")
+    System.out.println("JSON " + request.body.\("register"))
     Ok
   }
 
