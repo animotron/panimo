@@ -6,6 +6,7 @@
 GET     /                           controllers.Application.index
 GET     /users		    	    controllers.Application.users
 GET     /play-help          controllers.Application.playHelp
+GET     /ws                     controllers.Users.ws
 
 POST     /users/login        controllers.Users.login
 POST     /users/register        controllers.Users.register

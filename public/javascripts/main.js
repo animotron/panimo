@@ -13,10 +13,10 @@ function credentials(){
     }
 }
 
-function post(url, type, data ){
+function post(url, data ){
     $.ajax({
         type: "POST",
-        contentType: type,
+        contentType: "application/json; charset=utf-8",
         url: url,
         data: JSON.stringify(data)
     })
@@ -26,7 +26,6 @@ function attach_login_action(buttons){
     $(buttons).children(".reg").on("click", function(event){
         post(
             "/users/register",
-            "application/json; charset=utf-8",
             { register: credentials() }
         )
     })
@@ -34,7 +33,6 @@ function attach_login_action(buttons){
     $(buttons).children(".login").on("click", function (event) {
         post(
             "/users/login",
-            "application/json; charset=utf-8",
             { login: credentials() }
         )
     })
@@ -42,4 +40,11 @@ function attach_login_action(buttons){
 
 $(function(){
     attach_login_action($("#loginForm #loginButtons"));
+
+    var socket = new WebSocket("ws:/localhost:9000/ws");
+    socket.onmessage = function(data){
+        console.log(data)
+    }
+    socket.send("Привет");
+
 })
