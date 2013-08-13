@@ -9,8 +9,8 @@ package models
 
 object NeoStart {
 
-  var count: Int = 0
-  def mainName() : String = "Main name here " + count
+  var count : Int = 0
+  def mainName : String = "Main name here " + count
 
   def increase() : Unit = {
     count = count + 1
