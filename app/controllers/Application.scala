@@ -16,4 +16,8 @@ object Application extends Controller {
     Ok(views.html.users(NeoStart.mainName))
   }
 
+  def playHelp = Action {
+    Ok(views.html.p_help())
+  }
+
 }
