@@ -2,10 +2,8 @@ package controllers
 
 import play.api.mvc.{WebSocket, Action, Controller}
 import play.libs.Json
-import play.api.libs.iteratee.{Step, Enumerator, Iteratee}
-import play.api.libs.json.JsValue
-import play.api.libs.concurrent.Promise
-import scala.parallel.Future
+import play.api.libs.iteratee.{Enumerator, Iteratee}
+import play.api.libs.concurrent.Execution.Implicits._
 
 /**
  * Created with IntelliJ IDEA.
@@ -40,12 +38,14 @@ object Users extends Controller{
   }
 
   def ws = WebSocket.using[String] { request =>
-
-  // Just consume and ignore the input
-    val in = Iteratee.consume[String]()
+    println(request)
 
     // Send a single 'Hello!' message and close
-    val out = Enumerator("Hello!").andThen(Enumerator.eof)
+    val out = Enumerator("Hello!", "ohloh")
+
+    val in = Iteratee.foreach[String] { json => {
+      println(json)
+    }}
 
     (in, out)
 

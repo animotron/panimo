@@ -6,6 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 
+var socket = new WebSocket("ws:/localhost:9000/ws");
+
 function credentials(){
     return {
         user : $("#loginForm .username input[type=text]").val(),
@@ -41,9 +43,8 @@ function attach_login_action(buttons){
 $(function(){
     attach_login_action($("#loginForm #loginButtons"));
 
-    var socket = new WebSocket("ws:/localhost:9000/ws");
     socket.onmessage = function(data){
-        console.log(data)
+        console.log(data.data)
     }
     socket.send("Привет");
 
