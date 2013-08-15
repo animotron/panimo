@@ -8,6 +8,8 @@ GET     /users		    	    controllers.Application.users
 GET     /play-help          controllers.Application.playHelp
 GET     /ws                     controllers.Users.ws
 
+GET     /position/:id       controllers.Front.position(id:String)
+
 POST     /users/login        controllers.Users.login
 POST     /users/register        controllers.Users.register
 

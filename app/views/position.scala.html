@@ -1,0 +1,17 @@
+@(position: Position)
+@main(position.label){
+        <table>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>label</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>@position.id</td>
+                <td>@position.label</td>
+            </tr>
+            </tbody>
+        </table>
+}
