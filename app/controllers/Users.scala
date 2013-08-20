@@ -46,6 +46,7 @@ object Users extends Controller{
 
     val in = Iteratee.foreach[String] { json => {
       println(json)
+      println("Ha!")
     }}
 
     (in, out)
