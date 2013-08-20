@@ -2,7 +2,6 @@ package controllers
 
 import play.api._
 import play.api.mvc._
-import org.neo4j.kernel._
 import models.NeoStart
 
 object Application extends Controller {
@@ -12,7 +11,7 @@ object Application extends Controller {
   }
 
   def users = Action {
-    NeoStart.increase()
+    NeoStart.increase
     Ok(views.html.users(NeoStart.mainName))
   }
 
