@@ -3,16 +3,16 @@
 # ~~~~
 
 # Home page
-GET     /                   controllers.Application.index
-GET     /lot                controllers.Application.lot
-GET     /users		    	controllers.Application.users
-GET     /play-help          controllers.Application.playHelp
-GET     /ws                 controllers.Users.ws
+GET         /                      controllers.Application.index
+GET         /users                 controllers.Application.users
+GET         /play-help             controllers.Application.playHelp
+GET         /ws                    controllers.Users.ws
 
-GET     /position/:id       controllers.Front.position(id:String)
+GET         /position/:id          controllers.Front.position(id:String)
 
-POST     /users/login       controllers.Users.login
-POST     /users/register    controllers.Users.register
+POST        /users/login           controllers.Users.login
+POST        /users/register        controllers.Users.register
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file       controllers.Assets.at(path="/public", file)
+GET         /assets/*file          controllers.Assets.at(path="/public", file)
+
