@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                   controllers.Application.index
+GET     /lot                controllers.Application.lot
 GET     /users		    	controllers.Application.users
 GET     /play-help          controllers.Application.playHelp
 GET     /ws                 controllers.Users.ws

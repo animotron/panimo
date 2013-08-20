@@ -20,4 +20,8 @@ object Application extends Controller {
     Ok(views.html.p_help())
   }
 
+  def lot = Action {
+    Ok(views.html.lot("Лот №1, берлога"))
+
+  }
 }
