@@ -13,8 +13,8 @@
       <hotspot title="5" target="68/-23/65" pan="3.5886" skinid="" url="{node6}" id="Point01" tilt="-42.6593"/>
     </hotspots>
     <media/>
-    <input tile0url="images/6_o_0.jpg" prev5url="images/6_o_preview_5.jpg" prev4url="images/6_o_preview_4.jpg" prev3url="images/6_o_preview_3.jpg" prev2url="images/6_o_preview_2.jpg" prev1url="images/6_o_preview_1.jpg" prev0url="images/6_o_preview_0.jpg" tile5url="images/6_o_5.jpg" tilesize="1923" tile4url="images/6_o_4.jpg" tile3url="images/6_o_3.jpg" tilescale="1.00520020800832" tile2url="images/6_o_2.jpg" tile1url="images/6_o_1.jpg"/>
-    <altinput tile0url="images/6_o_800_0.jpg" screensize="1000" tile5url="images/6_o_800_5.jpg" tilesize="800" tile4url="images/6_o_800_4.jpg" tile3url="images/6_o_800_3.jpg" tilescale="1.00520020800832" tile2url="images/6_o_800_2.jpg" tile1url="images/6_o_800_1.jpg"/>
+    <input tile0url="/lot/6/images/6_o_0.jpg" prev5url="/lot/6/images/6_o_preview_5.jpg" prev4url="/lot/6/images/6_o_preview_4.jpg" prev3url="/lot/6/images/6_o_preview_3.jpg" prev2url="/lot/6/images/6_o_preview_2.jpg" prev1url="/lot/6/images/6_o_preview_1.jpg" prev0url="/lot/6/images/6_o_preview_0.jpg" tile5url="/lot/6/images/6_o_5.jpg" tilesize="1923" tile4url="/lot/6/images/6_o_4.jpg" tile3url="/lot/6/images/6_o_3.jpg" tilescale="1.00520020800832" tile2url="/lot/6/images/6_o_2.jpg" tile1url="/lot/6/images/6_o_1.jpg"/>
+    <altinput tile0url="/lot/6/images/6_o_800_0.jpg" screensize="1000" tile5url="/lot/6/images/6_o_800_5.jpg" tilesize="800" tile4url="/lot/6/images/6_o_800_4.jpg" tile3url="/lot/6/images/6_o_800_3.jpg" tilescale="1.00520020800832" tile2url="/lot/6/images/6_o_800_2.jpg" tile1url="/lot/6/images/6_o_800_1.jpg"/>
     <control simulatemass="1" lockedmouse="0" lockedkeyboard="0" dblclickfullscreen="0" invertwheel="0" lockedwheel="1" invertcontrol="0" speedwheel="1" sensitivity="8"/>
   </panorama>
   <panorama id="node2">
@@ -32,8 +32,8 @@
       <hotspot title="3" target="" pan="-111.959" skinid="" url="{node4}" id="Point03" tilt="-9.227"/>
     </hotspots>
     <media/>
-    <input tile0url="images/1_o_0.jpg" prev5url="images/1_o_preview_5.jpg" prev4url="images/1_o_preview_4.jpg" prev3url="images/1_o_preview_3.jpg" prev2url="images/1_o_preview_2.jpg" prev1url="images/1_o_preview_1.jpg" prev0url="images/1_o_preview_0.jpg" tile5url="images/1_o_5.jpg" tilesize="1923" tile4url="images/1_o_4.jpg" tile3url="images/1_o_3.jpg" tilescale="1.00520020800832" tile2url="images/1_o_2.jpg" tile1url="images/1_o_1.jpg"/>
-    <altinput tile0url="images/1_o_800_0.jpg" screensize="1000" tile5url="images/1_o_800_5.jpg" tilesize="800" tile4url="images/1_o_800_4.jpg" tile3url="images/1_o_800_3.jpg" tilescale="1.00520020800832" tile2url="images/1_o_800_2.jpg" tile1url="images/1_o_800_1.jpg"/>
+    <input tile0url="/lot/6/images/1_o_0.jpg" prev5url="/lot/6/images/1_o_preview_5.jpg" prev4url="/lot/6/images/1_o_preview_4.jpg" prev3url="/lot/6/images/1_o_preview_3.jpg" prev2url="/lot/6/images/1_o_preview_2.jpg" prev1url="/lot/6/images/1_o_preview_1.jpg" prev0url="/lot/6/images/1_o_preview_0.jpg" tile5url="/lot/6/images/1_o_5.jpg" tilesize="1923" tile4url="/lot/6/images/1_o_4.jpg" tile3url="/lot/6/images/1_o_3.jpg" tilescale="1.00520020800832" tile2url="/lot/6/images/1_o_2.jpg" tile1url="/lot/6/images/1_o_1.jpg"/>
+    <altinput tile0url="/lot/6/images/1_o_800_0.jpg" screensize="1000" tile5url="/lot/6/images/1_o_800_5.jpg" tilesize="800" tile4url="/lot/6/images/1_o_800_4.jpg" tile3url="/lot/6/images/1_o_800_3.jpg" tilescale="1.00520020800832" tile2url="/lot/6/images/1_o_800_2.jpg" tile1url="/lot/6/images/1_o_800_1.jpg"/>
     <control simulatemass="1" lockedmouse="0" lockedkeyboard="0" dblclickfullscreen="0" invertwheel="0" lockedwheel="1" invertcontrol="0" speedwheel="1" sensitivity="8"/>
   </panorama>
   <panorama id="node3">
@@ -51,8 +51,8 @@
       <hotspot title="5" target="" pan="-147.798" skinid="" url="{node6}" id="Point03" tilt="-12.3379"/>
     </hotspots>
     <media/>
-    <input tile0url="images/2_o_0.jpg" prev5url="images/2_o_preview_5.jpg" prev4url="images/2_o_preview_4.jpg" prev3url="images/2_o_preview_3.jpg" prev2url="images/2_o_preview_2.jpg" prev1url="images/2_o_preview_1.jpg" prev0url="images/2_o_preview_0.jpg" tile5url="images/2_o_5.jpg" tilesize="1923" tile4url="images/2_o_4.jpg" tile3url="images/2_o_3.jpg" tilescale="1.00520020800832" tile2url="images/2_o_2.jpg" tile1url="images/2_o_1.jpg"/>
-    <altinput tile0url="images/2_o_800_0.jpg" screensize="1000" tile5url="images/2_o_800_5.jpg" tilesize="800" tile4url="images/2_o_800_4.jpg" tile3url="images/2_o_800_3.jpg" tilescale="1.00520020800832" tile2url="images/2_o_800_2.jpg" tile1url="images/2_o_800_1.jpg"/>
+    <input tile0url="/lot/6/images/2_o_0.jpg" prev5url="/lot/6/images/2_o_preview_5.jpg" prev4url="/lot/6/images/2_o_preview_4.jpg" prev3url="/lot/6/images/2_o_preview_3.jpg" prev2url="/lot/6/images/2_o_preview_2.jpg" prev1url="/lot/6/images/2_o_preview_1.jpg" prev0url="/lot/6/images/2_o_preview_0.jpg" tile5url="/lot/6/images/2_o_5.jpg" tilesize="1923" tile4url="/lot/6/images/2_o_4.jpg" tile3url="/lot/6/images/2_o_3.jpg" tilescale="1.00520020800832" tile2url="/lot/6/images/2_o_2.jpg" tile1url="/lot/6/images/2_o_1.jpg"/>
+    <altinput tile0url="/lot/6/images/2_o_800_0.jpg" screensize="1000" tile5url="/lot/6/images/2_o_800_5.jpg" tilesize="800" tile4url="/lot/6/images/2_o_800_4.jpg" tile3url="/lot/6/images/2_o_800_3.jpg" tilescale="1.00520020800832" tile2url="/lot/6/images/2_o_800_2.jpg" tile1url="/lot/6/images/2_o_800_1.jpg"/>
     <control simulatemass="1" lockedmouse="0" lockedkeyboard="0" dblclickfullscreen="0" invertwheel="0" lockedwheel="1" invertcontrol="0" speedwheel="1" sensitivity="8"/>
   </panorama>
   <panorama id="node4">
@@ -70,8 +70,8 @@
       <hotspot title="4" target="" pan="-159.873" skinid="" url="{node5}" id="Point03" tilt="-11.0274"/>
     </hotspots>
     <media/>
-    <input tile0url="images/3_o_0.jpg" prev5url="images/3_o_preview_5.jpg" prev4url="images/3_o_preview_4.jpg" prev3url="images/3_o_preview_3.jpg" prev2url="images/3_o_preview_2.jpg" prev1url="images/3_o_preview_1.jpg" prev0url="images/3_o_preview_0.jpg" tile5url="images/3_o_5.jpg" tilesize="1923" tile4url="images/3_o_4.jpg" tile3url="images/3_o_3.jpg" tilescale="1.00520020800832" tile2url="images/3_o_2.jpg" tile1url="images/3_o_1.jpg"/>
-    <altinput tile0url="images/3_o_800_0.jpg" screensize="1000" tile5url="images/3_o_800_5.jpg" tilesize="800" tile4url="images/3_o_800_4.jpg" tile3url="images/3_o_800_3.jpg" tilescale="1.00520020800832" tile2url="images/3_o_800_2.jpg" tile1url="images/3_o_800_1.jpg"/>
+    <input tile0url="/lot/6/images/3_o_0.jpg" prev5url="/lot/6/images/3_o_preview_5.jpg" prev4url="/lot/6/images/3_o_preview_4.jpg" prev3url="/lot/6/images/3_o_preview_3.jpg" prev2url="/lot/6/images/3_o_preview_2.jpg" prev1url="/lot/6/images/3_o_preview_1.jpg" prev0url="/lot/6/images/3_o_preview_0.jpg" tile5url="/lot/6/images/3_o_5.jpg" tilesize="1923" tile4url="/lot/6/images/3_o_4.jpg" tile3url="/lot/6/images/3_o_3.jpg" tilescale="1.00520020800832" tile2url="/lot/6/images/3_o_2.jpg" tile1url="/lot/6/images/3_o_1.jpg"/>
+    <altinput tile0url="/lot/6/images/3_o_800_0.jpg" screensize="1000" tile5url="/lot/6/images/3_o_800_5.jpg" tilesize="800" tile4url="/lot/6/images/3_o_800_4.jpg" tile3url="/lot/6/images/3_o_800_3.jpg" tilescale="1.00520020800832" tile2url="/lot/6/images/3_o_800_2.jpg" tile1url="/lot/6/images/3_o_800_1.jpg"/>
     <control simulatemass="1" lockedmouse="0" lockedkeyboard="0" dblclickfullscreen="0" invertwheel="0" lockedwheel="1" invertcontrol="0" speedwheel="1" sensitivity="8"/>
   </panorama>
   <panorama id="node5">
@@ -88,8 +88,8 @@
       <hotspot title="3" target="" pan="61.7301" skinid="" url="{node4}" id="Point02" tilt="-6.98606"/>
     </hotspots>
     <media/>
-    <input tile0url="images/4_o_0.jpg" prev5url="images/4_o_preview_5.jpg" prev4url="images/4_o_preview_4.jpg" prev3url="images/4_o_preview_3.jpg" prev2url="images/4_o_preview_2.jpg" prev1url="images/4_o_preview_1.jpg" prev0url="images/4_o_preview_0.jpg" tile5url="images/4_o_5.jpg" tilesize="1923" tile4url="images/4_o_4.jpg" tile3url="images/4_o_3.jpg" tilescale="1.00520020800832" tile2url="images/4_o_2.jpg" tile1url="images/4_o_1.jpg"/>
-    <altinput tile0url="images/4_o_800_0.jpg" screensize="1000" tile5url="images/4_o_800_5.jpg" tilesize="800" tile4url="images/4_o_800_4.jpg" tile3url="images/4_o_800_3.jpg" tilescale="1.00520020800832" tile2url="images/4_o_800_2.jpg" tile1url="images/4_o_800_1.jpg"/>
+    <input tile0url="/lot/6/images/4_o_0.jpg" prev5url="/lot/6/images/4_o_preview_5.jpg" prev4url="/lot/6/images/4_o_preview_4.jpg" prev3url="/lot/6/images/4_o_preview_3.jpg" prev2url="/lot/6/images/4_o_preview_2.jpg" prev1url="/lot/6/images/4_o_preview_1.jpg" prev0url="/lot/6/images/4_o_preview_0.jpg" tile5url="/lot/6/images/4_o_5.jpg" tilesize="1923" tile4url="/lot/6/images/4_o_4.jpg" tile3url="/lot/6/images/4_o_3.jpg" tilescale="1.00520020800832" tile2url="/lot/6/images/4_o_2.jpg" tile1url="/lot/6/images/4_o_1.jpg"/>
+    <altinput tile0url="/lot/6/images/4_o_800_0.jpg" screensize="1000" tile5url="/lot/6/images/4_o_800_5.jpg" tilesize="800" tile4url="/lot/6/images/4_o_800_4.jpg" tile3url="/lot/6/images/4_o_800_3.jpg" tilescale="1.00520020800832" tile2url="/lot/6/images/4_o_800_2.jpg" tile1url="/lot/6/images/4_o_800_1.jpg"/>
     <control simulatemass="1" lockedmouse="0" lockedkeyboard="0" dblclickfullscreen="0" invertwheel="0" lockedwheel="1" invertcontrol="0" speedwheel="1" sensitivity="8"/>
   </panorama>
   <panorama id="node6">
@@ -107,8 +107,8 @@
       <hotspot title="3" target="" pan="-55.383" skinid="" url="{node4}" id="Point03" tilt="-17.6572"/>
     </hotspots>
     <media/>
-    <input tile0url="images/5_o_0.jpg" prev5url="images/5_o_preview_5.jpg" prev4url="images/5_o_preview_4.jpg" prev3url="images/5_o_preview_3.jpg" prev2url="images/5_o_preview_2.jpg" prev1url="images/5_o_preview_1.jpg" prev0url="images/5_o_preview_0.jpg" tile5url="images/5_o_5.jpg" tilesize="1923" tile4url="images/5_o_4.jpg" tile3url="images/5_o_3.jpg" tilescale="1.00520020800832" tile2url="images/5_o_2.jpg" tile1url="images/5_o_1.jpg"/>
-    <altinput tile0url="images/5_o_800_0.jpg" screensize="1000" tile5url="images/5_o_800_5.jpg" tilesize="800" tile4url="images/5_o_800_4.jpg" tile3url="images/5_o_800_3.jpg" tilescale="1.00520020800832" tile2url="images/5_o_800_2.jpg" tile1url="images/5_o_800_1.jpg"/>
+    <input tile0url="/lot/6/images/5_o_0.jpg" prev5url="/lot/6/images/5_o_preview_5.jpg" prev4url="/lot/6/images/5_o_preview_4.jpg" prev3url="/lot/6/images/5_o_preview_3.jpg" prev2url="/lot/6/images/5_o_preview_2.jpg" prev1url="/lot/6/images/5_o_preview_1.jpg" prev0url="/lot/6/images/5_o_preview_0.jpg" tile5url="/lot/6/images/5_o_5.jpg" tilesize="1923" tile4url="/lot/6/images/5_o_4.jpg" tile3url="/lot/6/images/5_o_3.jpg" tilescale="1.00520020800832" tile2url="/lot/6/images/5_o_2.jpg" tile1url="/lot/6/images/5_o_1.jpg"/>
+    <altinput tile0url="/lot/6/images/5_o_800_0.jpg" screensize="1000" tile5url="/lot/6/images/5_o_800_5.jpg" tilesize="800" tile4url="/lot/6/images/5_o_800_4.jpg" tile3url="/lot/6/images/5_o_800_3.jpg" tilescale="1.00520020800832" tile2url="/lot/6/images/5_o_800_2.jpg" tile1url="/lot/6/images/5_o_800_1.jpg"/>
     <control simulatemass="1" lockedmouse="0" lockedkeyboard="0" dblclickfullscreen="0" invertwheel="0" lockedwheel="1" invertcontrol="0" speedwheel="1" sensitivity="8"/>
   </panorama>
 </tour>
