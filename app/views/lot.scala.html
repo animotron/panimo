@@ -18,8 +18,8 @@
     <script>
         // hide URL field on the iPhone/iPod touch
         function hideUrlBar() {
-        document.getElementsByTagName("body")[0].style.marginTop="1px";
-        window.scrollTo(0, 1);
+            document.getElementsByTagName("body")[0].style.marginTop="1px";
+            window.scrollTo(0, 1);
         }
         window.addEventListener("load", hideUrlBar);
         window.addEventListener("resize", hideUrlBar);
@@ -30,7 +30,7 @@
         // add the skin object
         skin=new pano2vrSkin(pano);
         // load the configuration
-        pano.readConfigUrl("/lot/@id/out.xml");
+        pano.readConfigUrl("out.xml");
         // hide the URL bar on the iPhone
         hideUrlBar();
     </script>
