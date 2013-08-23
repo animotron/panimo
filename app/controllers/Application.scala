@@ -36,7 +36,7 @@ object Application extends Controller {
     else {
       try {
         val file_b = play.Play.application.getFile(path)
-        val source = scala.io.Source.fromFile(file_b)(scala.io.Codec.UTF8)
+        val source = scala.io.Source.fromFile(file_b)(scala.io.Codec.ISO8859)
         val byteArray = source.map(_.toByte).toArray
         source.close()
 
