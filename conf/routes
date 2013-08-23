@@ -4,6 +4,9 @@
 
 # Home page
 GET         /                      controllers.Application.index
+GET         /lot/:id               controllers.Application.lot(id)
+#GET         /lot/*file             controllers.Assets.at(path="/lot", file)
+
 GET         /users                 controllers.Application.users
 GET         /play-help             controllers.Application.playHelp
 GET         /ws                    controllers.Users.ws
