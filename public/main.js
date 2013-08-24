@@ -8,17 +8,17 @@
 
 var homes;
 
-function createMarker(map, houme){
+function createMarker(map, home){
     var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(houme.location.lat, houme.location.lang),
+        position: new google.maps.LatLng(home.location.lat, home.location.lang),
         map: map,
         animation: google.maps.Animation.DROP,
-        title: houme.name
+        title: home.name
     });
-    marker.set("houme", houme);
+    marker.set("home", home);
     marker.addListener("click", function () {
-        var h = marker.get("houme");
-        $(".houmeInfo").html("<h4>Info " + h.description.cost + "</h4>" +
+        var h = marker.get("home");
+        $(".homeInfo").html("<h4>Info " + h.description.cost + "</h4>" +
             "<div>" + h.description.text + "</div>");
     });
 }
@@ -29,9 +29,9 @@ function loadAllToMap(map){
         contentType: "application/json; charset=utf-8",
         url: "/allLots",
         success: function(data){
-            homes = eval('(' + data + ')').list;
-            for(var i = 0; i < homes.length; i++){
-                createMarker(map, homes[i]);
+            var list = eval('(' + data + ')').list;
+            for(var i in list){
+                createMarker(map, list[i]);
             }
         }
     })
