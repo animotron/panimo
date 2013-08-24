@@ -6,6 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 
+var infoWdws = new Array();
+
 function createMarker(map, home){
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(home.location.lat, home.location.lang),
@@ -13,9 +15,16 @@ function createMarker(map, home){
         animation: google.maps.Animation.DROP,
         title: home.name
     });
+    var infoWindow = new google.maps.InfoWindow({
+        position: marker.position,
+        content: "<h4>Info " + home.description.cost + "</h4>" +
+            "<div>" + home.description.text + " <a href='/lot/" + home.id +
+            "/'>show</a></div>"
+    });
+    infoWdws.push(infoWindow);
     marker.addListener("click", function () {
-        $(".homeInfo").html("<h4>Info " + home.description.cost + "</h4>" +
-            "<div>" + home.description.text + "</div>");
+        for (var i in infoWdws) infoWdws[i].close();
+        infoWindow.open(map, marker);
     });
 }
 
