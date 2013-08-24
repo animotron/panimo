@@ -5,7 +5,7 @@
 # Home page
 GET         /                      controllers.Application.index
 
-GET         /admin/          controllers.Adminka.index
+GET         /admin/                controllers.Adminka.index
 
 GET         /users                 controllers.Application.users
 GET         /play-help             controllers.Application.playHelp
@@ -20,4 +20,4 @@ POST        /users/register        controllers.Users.register
 GET         /assets/*file          controllers.Assets.at(path="/public", file)
 
 GET         /lot/:id/               controllers.Application.lot(id:String)
-GET         /lot/:id/*file             controllers.Application.res(id, file)
+GET         /lot/:id/*file          controllers.Application.res(id, file)
