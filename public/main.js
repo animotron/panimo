@@ -25,7 +25,7 @@ function loadAllToMap(map){
         contentType: "application/json; charset=utf-8",
         url: "/allLots",
         success: function(data){
-            var list = eval('(' + data + ')').list;
+            var list = JSON.parse(data).list;
             for(var i in list){
                 createMarker(map, list[i]);
             }
