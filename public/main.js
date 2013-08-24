@@ -7,6 +7,22 @@
  */
 
 var homes;
+
+function createMarker(map, houme){
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(houme.location.lat, houme.location.lang),
+        map: map,
+        animation: google.maps.Animation.DROP,
+        title: houme.name
+    });
+    marker.set("houme", houme);
+    marker.addListener("click", function () {
+        var h = marker.get("houme");
+        $(".houmeInfo").html("<h4>Info " + h.description.cost + "</h4>" +
+            "<div>" + h.description.text + "</div>");
+    });
+}
+
 function loadAllToMap(map){
     $.ajax({
         type: "GET",
@@ -15,17 +31,7 @@ function loadAllToMap(map){
         success: function(data){
             homes = eval('(' + data + ')').list;
             for(var i = 0; i < homes.length; i++){
-                var houme = homes[i];
-                new google.maps.Marker({
-                    position: new google.maps.LatLng(houme.location.lat, houme.location.lang),
-                    map: map,
-                    animation: google.maps.Animation.DROP,
-                    title: houme.name
-                }).addListener("click", function () {
-                        $(".houmeInfo").html("")
-                        $(".houmeInfo").html("<h4>Info " + houme.description.cost + "</h4>" +
-                            "<div>" + houme.description.text + "</div>");
-                    });
+                createMarker(map, homes[i]);
             }
         }
     })
