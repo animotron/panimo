@@ -15,66 +15,66 @@
 @scripts = {
     <script src="@routes.Assets.at("pano2vr/pano2vr_player.js")"></script>
     <script src="@routes.Assets.at("pano2vr/skin.js")"></script>
+    <script>
+        // hide URL field on the iPhone/iPod touch
+        function hideUrlBar() {
+            document.getElementsByTagName("body")[0].style.marginTop = "1px";
+            window.scrollTo(0, 1);
+        }
+        window.addEventListener("load", hideUrlBar);
+        window.addEventListener("resize", hideUrlBar);
+        window.addEventListener("orientationchange", hideUrlBar);
+
+        // create the panorama player with the container
+        pano = new pano2vrPlayer("container");
+        // add the skin object
+        skin = new pano2vrSkin(pano);
+        // load the configuration
+        pano.readConfigUrl("out.xml");
+        // hide the URL bar on the iPhone
+        hideUrlBar();
+    </script>
 }
 
 @main(title.toString(), styles, scripts){
     <h1>@title</h1>
-<div class="row">
-    <div class="col-md-7">
-        <div id="container" style="width:640px;height:480px;"></div>
-    </div>
-    <div class="col-md-5">
-        <h4>@title Info</h4>
-        <table>
-            <thead>
-            <tr>
-                <th>key</th>
-                <th>value</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>a</td>
-                <td>b</td>
-            </tr>
-            <tr>
-                <td>a</td>
-                <td>b</td>
-            </tr>
-            <tr>
-                <td>a</td>
-                <td>b</td>
-            </tr>
-            <tr>
-                <td>a</td>
-                <td>b</td>
-            </tr>
-            <tr>
-                <td>a</td>
-                <td>b</td>
-            </tr>
+    <div class="row">
+        <div class="col-md-7">
+            <div id="container" style="width:640px;height:480px;"></div>
+        </div>
+        <div class="col-md-5">
+            <h4>@title Info</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>key</th>
+                    <th>value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>a</td>
+                    <td>b</td>
+                </tr>
+                <tr>
+                    <td>a</td>
+                    <td>b</td>
+                </tr>
+                <tr>
+                    <td>a</td>
+                    <td>b</td>
+                </tr>
+                <tr>
+                    <td>a</td>
+                    <td>b</td>
+                </tr>
+                <tr>
+                    <td>a</td>
+                    <td>b</td>
+                </tr>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-<script>
-    // hide URL field on the iPhone/iPod touch
-    function hideUrlBar() {
-        document.getElementsByTagName("body")[0].style.marginTop = "1px";
-        window.scrollTo(0, 1);
-    }
-    window.addEventListener("load", hideUrlBar);
-    window.addEventListener("resize", hideUrlBar);
-    window.addEventListener("orientationchange", hideUrlBar);
-
-    // create the panorama player with the container
-    pano = new pano2vrPlayer("container");
-    // add the skin object
-    skin = new pano2vrSkin(pano);
-    // load the configuration
-    pano.readConfigUrl("out.xml");
-    // hide the URL bar on the iPhone
-    hideUrlBar();
-</script>
 }

@@ -18,13 +18,13 @@
         <link rel="apple-touch-icon" size="144x144" href="@routes.Assets.at("logo/logo-144x144.png")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("bootstrap/bootstrap.min.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("main.css")">
+	    @styles
+    </head>
+    <body>
+        @content
         <script src="@routes.Assets.at("jquery-1.9.0.min.js")"></script>
         <script src="@routes.Assets.at("bootstrap/bootstrap.min.js")"></script>
         @scripts
         <script src="@routes.Assets.at("main.js")"></script>
-	    @styles
-    </head>
-    <body>
-    @content
     </body>
 </html>
