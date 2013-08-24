@@ -6,8 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var homes;
-
 function createMarker(map, home){
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(home.location.lat, home.location.lang),
