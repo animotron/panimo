@@ -21,3 +21,5 @@ GET         /assets/*file          controllers.Assets.at(path="/public", file)
 
 GET         /lot/:id/               controllers.Application.lot(id:String)
 GET         /lot/:id/*file          controllers.Application.res(id, file)
+
+GET /allLots    controllers.Application.allPoints

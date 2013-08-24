@@ -4,7 +4,9 @@ import play.api._
 import play.api.mvc._
 import models.NeoStart
 import models.Position
-import java.io.{FileReader, File}
+import scala.reflect.io.{Directory, File}
+import play.api.libs.json.{Json, JsArray, JsValue, JsObject}
+import play.api.libs.json.Json.JsValueWrapper
 
 object Application extends Controller {
 
@@ -49,7 +51,20 @@ object Application extends Controller {
       }
 
     }
-//      Ok
+  }
 
+  def allPoints = Action {
+    val lot_list: List[String] = new File(new java.io.File("./lot")).toDirectory.dirs.collect[String] {
+      case d: Directory => "./lot/" + d.name + "/info.json"
+    }.toList
+
+    val main = Json.obj("houmes" -> Json.toJson(
+      lot_list.collect{
+        case path : String =>
+          Json.parse(scala.io.Source.fromFile(path).mkString)
+      }
+    ))
+
+    Ok(Json.stringify(main))
   }
 }

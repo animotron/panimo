@@ -1,0 +1,12 @@
+{
+    "location" : {
+        "lat" : 59.889344,
+        "lang" : 30.330216
+    },
+    "name" : "Home 1",
+    "description" : {
+        "cost" : "500$",
+        "rooms" : 4,
+        "text" : "A very good flat with free fast WiFi and &&&&"
+    }
+}
