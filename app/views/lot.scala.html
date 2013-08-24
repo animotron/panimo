@@ -15,25 +15,6 @@
 @scripts = {
     <script src="@routes.Assets.at("pano2vr/pano2vr_player.js")"></script>
     <script src="@routes.Assets.at("pano2vr/skin.js")"></script>
-    <script>
-        // hide URL field on the iPhone/iPod touch
-        function hideUrlBar() {
-            document.getElementsByTagName("body")[0].style.marginTop="1px";
-            window.scrollTo(0, 1);
-        }
-        window.addEventListener("load", hideUrlBar);
-        window.addEventListener("resize", hideUrlBar);
-        window.addEventListener("orientationchange", hideUrlBar);
-
-        // create the panorama player with the container
-        pano=new pano2vrPlayer("container");
-        // add the skin object
-        skin=new pano2vrSkin(pano);
-        // load the configuration
-        pano.readConfigUrl("out.xml");
-        // hide the URL bar on the iPhone
-        hideUrlBar();
-    </script>
 }
 
 @main(title.toString(), styles, scripts){
@@ -77,4 +58,23 @@
         </table>
     </div>
 </div>
+<script>
+    // hide URL field on the iPhone/iPod touch
+    function hideUrlBar() {
+        document.getElementsByTagName("body")[0].style.marginTop = "1px";
+        window.scrollTo(0, 1);
+    }
+    window.addEventListener("load", hideUrlBar);
+    window.addEventListener("resize", hideUrlBar);
+    window.addEventListener("orientationchange", hideUrlBar);
+
+    // create the panorama player with the container
+    pano = new pano2vrPlayer("container");
+    // add the skin object
+    skin = new pano2vrSkin(pano);
+    // load the configuration
+    pano.readConfigUrl("out.xml");
+    // hide the URL bar on the iPhone
+    hideUrlBar();
+</script>
 }
