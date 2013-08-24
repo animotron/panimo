@@ -58,7 +58,7 @@ object Application extends Controller {
       case d: Directory => "./lot/" + d.name + "/info.json"
     }.toList
 
-    val main = Json.obj("houmes" -> Json.toJson(
+    val main = Json.obj("list" -> Json.toJson(
       lot_list.collect{
         case path : String =>
           Json.parse(scala.io.Source.fromFile(path).mkString)
