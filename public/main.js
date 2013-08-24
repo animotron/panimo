@@ -13,11 +13,9 @@ function createMarker(map, home){
         animation: google.maps.Animation.DROP,
         title: home.name
     });
-    marker.set("home", home);
     marker.addListener("click", function () {
-        var h = marker.get("home");
-        $(".homeInfo").html("<h4>Info " + h.description.cost + "</h4>" +
-            "<div>" + h.description.text + "</div>");
+        $(".homeInfo").html("<h4>Info " + home.description.cost + "</h4>" +
+            "<div>" + home.description.text + "</div>");
     });
 }
 
