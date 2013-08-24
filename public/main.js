@@ -29,17 +29,13 @@ function createMarker(map, home){
 }
 
 function loadAllToMap(map){
-    $.ajax({
-        type: "GET",
-        contentType: "application/json; charset=utf-8",
-        url: "/allLots",
-        success: function(data){
+    $.get("/allLots", function(data){
             var list = JSON.parse(data).list;
             for(var i in list){
                 createMarker(map, list[i]);
             }
         }
-    })
+    )
 
 }
 
