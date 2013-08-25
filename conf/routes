@@ -4,9 +4,10 @@
 
 # Home page
 GET         /                      controllers.Application.index
+GET         /search                controllers.Application.search
 
 GET         /admin/                controllers.Adminka.index
-POST       /admin/add           controllers.Adminka.add_new
+POST        /admin/add             controllers.Adminka.add_new
 
 GET         /users                 controllers.Application.users
 GET         /play-help             controllers.Application.playHelp

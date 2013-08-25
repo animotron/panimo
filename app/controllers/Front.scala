@@ -11,7 +11,7 @@ import models.Position
  */
 object Front extends Controller {
   def index = Action {
-    Ok(views.html.index("", List.empty[Position]))
+    Ok(views.html.index(""))
   }
 
   def position(id : String) = Action {

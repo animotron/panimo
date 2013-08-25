@@ -11,7 +11,11 @@ import play.api.libs.json.Json.JsValueWrapper
 object Application extends Controller {
 
   def index = Action {
-    Ok(views.html.index("Your new application is ready.", Position.all))
+    Ok(views.html.index("Welcome to Infostark"))
+  }
+
+  def search = Action {
+    Ok(views.html.search("Infostark", Position.all))
   }
 
   def users = Action {
