@@ -1,8 +1,14 @@
-@(dir: List[String])
+@(dir: List[String], form : Form[Lot])
+
+@import helper.twitterBootstrap._
+
 @views.html.main("Adminka"){
 <div class="row row-offcanvas row-offcanvas-right">
     <div class="col-xs-12 col-sm-9">
-
+    @helper.form(action = routes.Adminka.add_new, 'id -> "myForm") {
+        @helper.inputText(form("description"))
+        <button type="submit">add</button>
+    }
     </div>
     <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
         <div class="well sidebar-nav">

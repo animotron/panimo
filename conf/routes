@@ -6,6 +6,7 @@
 GET         /                      controllers.Application.index
 
 GET         /admin/                controllers.Adminka.index
+POST       /admin/add           controllers.Adminka.add_new
 
 GET         /users                 controllers.Application.users
 GET         /play-help             controllers.Application.playHelp
