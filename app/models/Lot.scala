@@ -8,12 +8,12 @@ package models
  */
 case class Lot(
 
-  name : String,
+  name : Option[String],
 
-  rooms : Int,
+  rooms : Option[Int],
 
-  level : Int,
+  level : Option[Int],
 
-  description : String
+  description : Option[String]
 
 )
