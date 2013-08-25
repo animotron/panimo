@@ -1,28 +1,28 @@
 @(title: String, styles: Html = Html(""), scripts: Html = Html(""))(content: Html)
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
-		<meta charset='utf-8'>
-	    <meta name='viewport' content='width=device-width, initial-scale=1.0 user-scalable=no'>
-        <meta name='apple-mobile-web-app-capable' content='yes'>
-        <meta name='apple-mobile-web-app-status-bar-style' content='black'>
-	    <meta name='description' content=''>
-	    <meta name='author' content=''>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
         <title>@title</title>
-        <link rel='icon' size='57x57' href='@routes.Assets.at("logo/logo-57x57.png")'>
-        <link rel='apple-touch-icon' size='57x57' href='@routes.Assets.at("logo/logo-57x57.png")'>
-        <link rel='apple-touch-icon' size='72x72' href='@routes.Assets.at("logo/logo-72x72.png")'>
-        <link rel='apple-touch-icon' size='114x114' href='@routes.Assets.at("logo/logo-114x114.png")'>
-        <link rel='apple-touch-icon' size='144x144' href='@routes.Assets.at("logo/logo-144x144.png")'>
-        <link rel='stylesheet' media='screen' href='@routes.Assets.at("bootstrap/bootstrap.min.css")'>
-        <link rel='stylesheet' media='screen' href='@routes.Assets.at("main.css")'>
+        <link rel="icon" size="57x57" href="@routes.Assets.at("/public", "logo/logo-57x57.png")">
+        <link rel="apple-touch-icon" size="57x57" href="@routes.Assets.at("/public", "logo/logo-57x57.png")">
+        <link rel="apple-touch-icon" size="72x72" href="@routes.Assets.at("/public", "logo/logo-72x72.png")">
+        <link rel="apple-touch-icon" size="114x114" href="@routes.Assets.at("/public", "logo/logo-114x114.png")">
+        <link rel="apple-touch-icon" size="144x144" href="@routes.Assets.at("/public", "logo/logo-144x144.png")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("/public", "bootstrap/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("/public", "main.css")">
 	    @styles
     </head>
     <body>
         @content
-        <script src='@routes.Assets.at("jquery-1.9.0.min.js")'></script>
-        <script src='@routes.Assets.at("bootstrap/bootstrap.min.js")'></script>
+        <script src="@routes.Assets.at("/public", "jquery-1.9.0.min.js")"></script>
+        <script src="@routes.Assets.at("/public", "bootstrap/bootstrap.min.js")"></script>
         @scripts
-        <script src='@routes.Assets.at("main.js")'></script>
+        <script src="@routes.Assets.at("/public", "main.js")"></script>
     </body>
 </html>

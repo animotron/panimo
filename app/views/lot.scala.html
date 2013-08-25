@@ -5,7 +5,7 @@
 }
 
 @styles = {
-    <style title='Default'>
+    <style title="Default">
         .warning {
             font-weight: bold;
         }
@@ -13,8 +13,8 @@
 }
 
 @scripts = {
-    <script src='@routes.Assets.at("pano2vr/pano2vr_player.js")'></script>
-    <script src='@routes.Assets.at("pano2vr/skin.js")'></script>
+    <script src="@routes.Assets.at("/public", "pano2vr/pano2vr_player.js")"></script>
+    <script src="@routes.Assets.at("/public", "pano2vr/skin.js")"></script>
     <script>
         // hide URL field on the iPhone/iPod touch
         function hideUrlBar() {
@@ -38,11 +38,11 @@
 
 @main(title.toString(), styles, scripts){
     <h1>@title</h1>
-    <div class='row'>
-        <div class='col-md-7'>
-            <div id='container' style='width:640px;height:480px;'></div>
+    <div class="row">
+        <div class="col-md-7">
+            <div id="container" style="width:640px;height:480px;"></div>
         </div>
-        <div class='col-md-5'>
+        <div class="col-md-5">
             <h4>@title Info</h4>
             <table>
                 <thead>

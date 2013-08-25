@@ -23,6 +23,6 @@ object ApplicationBuild extends Build {
 //    "org.neo4j" % "neo4j-kernel" % "1.9.RC1"
   )
 
-//  playAssetsDirectories <+= baseDirectory / "lot"
+  playAssetsDirectories <+= baseDirectory / "lot"
 
 }
