@@ -11,7 +11,7 @@ function pano2vrSkin(player,base) {
 	this.player=player;
 	this.player.skinObj=this;
 	this.divSkin=player.divSkin;
-	var basePath="";
+	var basePath="/assets/pano2vr/";
 	// auto detect base path
 	if (base=='?') {
 		var scripts = document.getElementsByTagName('script');

@@ -36,7 +36,6 @@ function loadAllToMap(map){
             }
         }
     )
-
 }
 
 $(function(){
