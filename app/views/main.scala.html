@@ -19,21 +19,10 @@
 	    @styles
     </head>
     <body>
-        <div class="row">
-            <div class="col-md-1">
-
-            </div>
-            <div class="col-md-1">
-                <a href="/">Home</a>
-            </div>
-            <div class="col-md-1">
-                <a href="/admin/">admin</a>
-            </div>
-        </div>
         @content
         <script src="@routes.Assets.at("/public", "jquery-1.9.0.min.js")"></script>
         <script src="@routes.Assets.at("/public", "bootstrap/bootstrap.min.js")"></script>
         @scripts
-        <script src="@routes.Assets.at("/public", "main.js")"></script>
+        <script src="@routes.Assets.at("/public", "map.js")"></script>
     </body>
 </html>

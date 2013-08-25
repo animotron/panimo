@@ -1,5 +1,7 @@
 @(message: String, all: List[Position])
 
+
+
 @scripts = {
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
@@ -20,44 +22,11 @@
 }
 
 @main("Welcome to Play", scripts) {
-
-    <h4>Choose your location</h4>
+    @nav()
     <div class="row">
         <div class="col-md-12">
             <div id="map-canvas"></div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 homeInfo">
-        </div>
-    </div>
 
-
-    <!-- START THE FEATURETTES -->
-
-    <hr class="featurette-divider">
-
-    <div class="featurette">
-    <img class="featurette-image img-circle pull-right" data-src="holder.js/512x512">
-    <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It"ll blow your mind.</span></h2>
-    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="featurette">
-    <img class="featurette-image img-circle pull-left" data-src="holder.js/512x512">
-    <h2 class="featurette-heading">Oh yeah, it"s that good. <span class="text-muted">See for yourself.</span></h2>
-    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="featurette">
-    <img class="featurette-image img-circle pull-right" data-src="holder.js/512x512">
-    <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-
-    <hr class="featurette-divider">
 }
