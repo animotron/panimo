@@ -1,7 +1,7 @@
-@(id: String)
+@(houme: AnyContentAsJson)
 
 @title = {
-    Lot #@id
+    Lot #@(houme.json\"id")
 }
 
 @styles = {
@@ -53,26 +53,21 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>a</td>
-                    <td>b</td>
+                    <td>name</td>
+                    <td>@(houme.json \ "name")</td>
                 </tr>
                 <tr>
-                    <td>a</td>
-                    <td>b</td>
+                    <td>cost</td>
+                    <td>@(houme.json \\ "cost")</td>
                 </tr>
                 <tr>
-                    <td>a</td>
-                    <td>b</td>
+                    <td>rooms</td>
+                    <td>@(houme.json \\ "rooms")</td>
                 </tr>
                 <tr>
-                    <td>a</td>
-                    <td>b</td>
+                    <td>text</td>
+                    <td>@(houme.json \\ "text")</td>
                 </tr>
-                <tr>
-                    <td>a</td>
-                    <td>b</td>
-                </tr>
-
                 </tbody>
             </table>
         </div>
