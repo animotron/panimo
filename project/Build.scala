@@ -21,8 +21,8 @@ object ApplicationBuild extends Build {
 //    resolvers += "OSS Repo" at "https://oss.sonatype.org/content/repositories/snapshots",
 //    resolvers += Resolver.url("sbt-plugin-snapshots", url("http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/"))(Resolver.ivyStylePatterns)
 //    "org.neo4j" % "neo4j-kernel" % "1.9.RC1"
+    playAssetsDirectories <+= baseDirectory / "lot"
   )
 
-  playAssetsDirectories <+= baseDirectory / "lot"
 
 }
