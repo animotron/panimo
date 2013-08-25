@@ -1,7 +1,7 @@
-@(houme: AnyContentAsJson)
+@(home: AnyContentAsJson)
 
 @title = {
-    Lot #@((houme.json\"id").asOpt[Int])
+    Lot #@((home.json\"id").asOpt[Int])
 }
 
 @styles = {
@@ -54,19 +54,19 @@
                 <tbody>
                 <tr>
                     <td>name</td>
-                    <td>@((houme.json \ "name").asOpt[String])</td>
+                    <td>@((home.json \ "name").asOpt[String])</td>
                 </tr>
                 <tr>
                     <td>cost</td>
-                    <td>@((houme.json \ "description" \ "cost").asOpt[String])</td>
+                    <td>@((home.json \ "description" \ "cost").asOpt[String])</td>
                 </tr>
                 <tr>
                     <td>rooms</td>
-                    <td>@((houme.json \ "description" \ "rooms").asOpt[Int])</td>
+                    <td>@((home.json \ "description" \ "rooms").asOpt[Int])</td>
                 </tr>
                 <tr>
                     <td>text</td>
-                    <td>@((houme.json \ "description" \ "text").asOpt[String])</td>
+                    <td>@((home.json \ "description" \ "text").asOpt[String])</td>
                 </tr>
                 </tbody>
             </table>
