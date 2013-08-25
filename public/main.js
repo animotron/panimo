@@ -29,7 +29,7 @@ function createMarker(map, home){
 }
 
 function loadAllToMap(map){
-    $.get("/allLots", function(data){
+    $.get("/lot/all", function(data){
             var list = JSON.parse(data).list;
             for(var i in list){
                 createMarker(map, list[i]);
