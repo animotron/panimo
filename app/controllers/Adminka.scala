@@ -18,10 +18,10 @@ object Adminka extends Controller {
 
   val lotCreateForm = Form(
     mapping(
-      "name" -> text,
-      "rooms" -> number,
-      "level" -> number,
-      "description" -> text
+      "name" -> optional(text),
+      "rooms" -> optional(number),
+      "level" -> optional(number),
+      "description" -> optional(text)
     )(Lot.apply)(Lot.unapply)
   )
 
@@ -43,9 +43,12 @@ object Adminka extends Controller {
     Ok(views.html.adminka.index(list, lotCreateForm))
   }
 
-  def add_new = Action { request =>
+  def add_new = Action { implicit request =>
 
-    Logger.info(request.toString())
+    lotCreateForm.bindFromRequest.fold(
+    errors => NotFound,
+    lot => println(lot.description)
+    )
 
     Ok
   }
