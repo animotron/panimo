@@ -12,6 +12,7 @@
 
 @scripts = {
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="@routes.Assets.at("/public", "map.js")"></script>
     <script>
         function resize() {
             $("#map-canvas" ).width($(".col-md-9").innerWidth()).height($(window).innerHeight());
