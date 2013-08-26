@@ -1,10 +1,22 @@
 @(message: String, all: List[Position])
 
-
+@styles = {
+    <style>
+        #map {
+            position: fixed;
+            right: 0;
+            top: 0;
+        }
+    </style>
+}
 
 @scripts = {
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
+        function resize() {
+            $("#map-canvas" ).width($(".col-md-9").innerWidth()).height($(window).innerHeight());
+        }
+        $(window ).resize(resize);
         var map;
         function initialize() {
             var myLatLng = new google.maps.LatLng(59.933344, 30.320206);
@@ -18,15 +30,44 @@
             loadAllToMap(map);
         }
         google.maps.event.addDomListener(window, "load", initialize);
+        resize();
     </script>
 }
 
-@main(message, scripts) {
-    @nav()
+@main(message, styles, scripts) {
+    <div id="map"><div id="map-canvas"></div></div>
     <div class="row">
-        <div class="col-md-12">
-            <div id="map-canvas"></div>
+        <div class="col-md-3">
+            <div class="container">
+                <nav class="navbar" role="navigation">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/"><img src="@routes.Assets.at("/public", "logo/logo.svg")" height="40"></a>
+                    </div>
+                </nav>
+                <form role="form">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">File input</label>
+                        <input type="file" id="exampleInputFile">
+                        <p class="help-block">Example block-level help text here.</p>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Check me out
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-9">
         </div>
     </div>
-
 }
