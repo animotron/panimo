@@ -49,7 +49,7 @@ object Adminka extends Controller {
     errors => NotFound,
     lot => println(lot.description)
     )
-
     Ok
+//    Ok(TODO.apply(request))
   }
 }

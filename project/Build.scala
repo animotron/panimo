@@ -9,6 +9,9 @@ object ApplicationBuild extends Build {
 
   val appDependencies = Seq(
     // Add your project dependencies here,
+    jdbc,
+    anorm,
+    cache,
     //cache
     "org.neo4j" % "neo4j-kernel" % "1.9.2"
 //    "securesocial" %% "securesocial" % "2.0.12",
