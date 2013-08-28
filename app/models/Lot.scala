@@ -106,11 +106,9 @@ object Lot {
     if (new java.io.File(path).exists)
       new java.io.File(path).delete
     Resource.fromFile(path).write(text)
-
   }
 
   def all : List[Lot] = {
-
     val lot_list: List[String] = new File(new java.io.File("./lot")).toDirectory.dirs.collect[String] {
       case d: Directory => "./lot/" + d.name + "/info.json"
     }.toList
@@ -120,15 +118,11 @@ object Lot {
         val jsLot = Json.parse(Source.fromFile(path).mkString)
         fromJson(jsLot)
     }.toList
-
   }
 
   def byId(id:String) : Lot = {
-
     val file = Source.fromFile("./lot/" + id + "/info.json").mkString
     if (file.isEmpty) null
     else fromJson(Json.parse(file))
-
   }
-
 }
