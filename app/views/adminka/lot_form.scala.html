@@ -1,0 +1,140 @@
+@(form: Form[Lot])
+<form role="form" action="@routes.Adminka.add_new" method="post">
+    <input type="hidden" name="@form("id").name" id="@form("id").id" value="@form("id").value">
+    <input type="hidden" name="@form("location.latitude").name" id="@form("location.latitude").id" value="@form("location.latitude").value">
+    <input type="hidden" name="@form("location.longitude").name" id="@form("location.longitude").id" value="@form("location.longitude").value">
+    <div class="form-group">
+        <label for="@form("location.address.city").id">Город</label>
+        <input type="text" class="form-control"
+            id="@form("location.address.city").id"
+            name="@form("location.address.city").name"
+            value="@form("location.address.city").value"
+        >
+    </div>
+    <div class="form-group">
+        <label for="@form("location.address.street").id">Улица</label>
+        <input type="text" class="form-control"
+            id="@form("location.address.street").id"
+            name="@form("location.address.street").name"
+            value="@form("location.address.street").value"
+        >
+    </div>
+    <div class="form-group">
+        <label for="@form("location.address.metro").id">Метро</label>
+        <input type="text" class="form-control"
+            id="@form("location.address.metro").id"
+            name="@form("location.address.metro").name"
+            value="@form("location.address.metro").value"
+        >
+    </div>
+    <div class="form-group">
+        <label for="@form("location.address.home").id">Дом</label>
+        <input type="text" class="form-control"
+            id="@form("location.address.home").id"
+            name="@form("location.address.home").name"
+            value="@form("location.address.home").value"
+        >
+    </div>
+    <div class="form-group">
+        <label for="@form("level").id">Этаж</label>
+        <input type="text" class="form-control"
+            id="@form("level").id"
+            name="@form("level").name"
+            value="@form("level").value"
+        >
+    </div>
+    <div class="form-group">
+        <label for="@form("rooms").id">Количество комнат</label>
+        <input type="text" class="form-control"
+        id="@form("rooms").id"
+        name="@form("rooms").name"
+        value="@form("rooms").value"
+        >
+    </div>
+    @helper.repeat(form("spaces"), min = 1) { space =>
+            <div class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control"
+                        id="@form("name").id"
+                        name="@form("name").name"
+                        value="@form("name").value"
+                        placeholder="комната"
+                    >
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control"
+                        id="@form("s").id"
+                        name="@form("s").name"
+                        value="@form("s").value"
+                        placeholder="площадь"
+                    >
+                </div>
+            </div>
+    }
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"
+                id="@form("pets").id"
+                name="@form("pets").name"
+                value="@form("pets").value"
+            > животные
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label for="@form("manageCo").id">Управляющаяя компания</label>
+        <input type="text" class="form-control"
+            id="@form("manageCo").id"
+            name="@form("manageCo").name"
+            value="@form("manageCo").value"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="@form("communications").id">Коммуникации</label>
+        <input type="text" class="form-control"
+            id="@form("communications").id"
+            name="@form("communications").name"
+            value="@form("communications").value"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="@form("counters").id">Виды счетчиков</label>
+        <input type="text" class="form-control"
+            id="@form("counters").id"
+            name="@form("counters").name"
+            value="@form("counters").value"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="@form("price").id">Цена</label>
+        <input type="text" class="form-control"
+            id="@form("price").id"
+            name="@form("price").name"
+            value="@form("price").value"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="@form("phone").id">Номер телефона</label>
+        <input type="text" class="form-control"
+            id="@form("phone").id"
+            name="@form("phone").name"
+            value="@form("phone").value"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="@form("sub_conditions").id">Дополнительные  условия</label>
+        <input type="text" class="form-control"
+            id="@form("sub_conditions").id"
+            name="@form("sub_conditions").name"
+            value="@form("sub_conditions").value"
+        >
+    </div>
+    <input type="file"/>
+    <button type="submit">add</button>
+</form>

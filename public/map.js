@@ -10,7 +10,7 @@ var infoWdws = new Array();
 
 function createMarker(map, home){
     var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(home.location.lat, home.location.lang),
+        position: new google.maps.LatLng(home.location.latitude, home.location.longitude),
         map: map,
         animation: google.maps.Animation.DROP,
         title: home.name
@@ -18,7 +18,7 @@ function createMarker(map, home){
     var infoWindow = new google.maps.InfoWindow({
         position: marker.position,
         content: "<h4>Info " + home.description.cost + "</h4>" +
-            "<div>" + home.description.text + " <a href='/lot/" + home.id +
+            "<div>" + home.sub_conditions + " <a href='/lot_/" + home.id +
             "/'>show</a></div>"
     });
     infoWdws.push(infoWindow);

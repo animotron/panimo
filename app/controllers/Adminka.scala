@@ -5,8 +5,9 @@ import play.api.mvc._
 import scala.reflect.io.{Directory, File}
 import play.api.data._
 import play.api.data.Forms._
-import models.Lot
+import models.{Space, Location, Address, Lot}
 import play.api.libs.json.Json
+import java.util.UUID
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,16 +16,6 @@ import play.api.libs.json.Json
  *         Time: 23:21
  */
 object Adminka extends Controller {
-
-  val lotCreateForm = Form(
-    mapping(
-      "name" -> optional(text),
-      "rooms" -> optional(number),
-      "level" -> optional(number),
-      "description" -> optional(text)
-    )(Lot.apply)(Lot.unapply)
-  )
-
 
   def index = Action {
     val list = new File(new java.io.File("./lot")).toDirectory.dirs.collect[String]{ case d : Directory => d.name }.toList
@@ -39,17 +30,18 @@ object Adminka extends Controller {
           Json.parse(scala.io.Source.fromFile(path).mkString)
       }
     ))
-
-    Ok(views.html.adminka.index(list, lotCreateForm))
+    Ok(views.html.adminka.index(list, Lot.webForm.fill(Lot.empty)))
   }
 
   def add_new = Action { implicit request =>
 
-    lotCreateForm.bindFromRequest.fold(
-    errors => NotFound,
-    lot => println(lot.description)
+    Lot.webForm.bindFromRequest.fold(
+      errors => NotFound,
+      success => {
+        Lot.store(success)
+      }
     )
-    Ok
+    Redirect("/admin/", 200)
 //    Ok(TODO.apply(request))
   }
 }
