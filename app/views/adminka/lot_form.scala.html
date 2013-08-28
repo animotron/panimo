@@ -5,7 +5,7 @@
     <input type="hidden" name="@form("location.longitude").name" id="@form("location.longitude").id" value="@form("location.longitude").value">
     <div class="form-group">
         <label for="@form("location.address.city").id">Город</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control input-sm"
             id="@form("location.address.city").id"
             name="@form("location.address.city").name"
             value="@form("location.address.city").value"
@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
         <label for="@form("location.address.street").id">Улица</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control input-sm"
             id="@form("location.address.street").id"
             name="@form("location.address.street").name"
             value="@form("location.address.street").value"
@@ -21,7 +21,7 @@
     </div>
     <div class="form-group">
         <label for="@form("location.address.metro").id">Метро</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control input-sm"
             id="@form("location.address.metro").id"
             name="@form("location.address.metro").name"
             value="@form("location.address.metro").value"
@@ -29,7 +29,7 @@
     </div>
     <div class="form-group">
         <label for="@form("location.address.home").id">Дом</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control input-sm"
             id="@form("location.address.home").id"
             name="@form("location.address.home").name"
             value="@form("location.address.home").value"
@@ -37,7 +37,7 @@
     </div>
     <div class="form-group">
         <label for="@form("level").id">Этаж</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control input-sm"
             id="@form("level").id"
             name="@form("level").name"
             value="@form("level").value"
@@ -45,7 +45,7 @@
     </div>
     <div class="form-group">
         <label for="@form("rooms").id">Количество комнат</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control input-sm"
         id="@form("rooms").id"
         name="@form("rooms").name"
         value="@form("rooms").value"
@@ -53,7 +53,7 @@
     </div>
     <div class="form-group">
         <label for="@form("square").id">Общая площадь</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control input-sm"
         id="@form("square").id"
         name="@form("square").name"
         value="@form("square").value"
@@ -62,7 +62,7 @@
     @helper.repeat(form("spaces"), min = 1) { space =>
             <div class="form-inline">
                 <div class="form-group">
-                    <input type="text" class="form-control"
+                    <input type="text" class="form-control input-sm"
                         id="@space("name").id"
                         name="@space("name").name"
                         value="@space("name").value"
@@ -70,7 +70,7 @@
                     >
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control"
+                    <input type="text" class="form-control input-sm"
                         id="@space("square").id"
                         name="@space("square").name"
                         value="@space("square").value"
@@ -93,7 +93,7 @@
 
     <div class="form-group">
         <label for="@form("manageCo").id">Управляющаяя компания</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control input-sm"
             id="@form("manageCo").id"
             name="@form("manageCo").name"
             value="@form("manageCo").value"
@@ -102,7 +102,7 @@
 
     <div class="form-group">
         <label for="@form("communications").id">Коммуникации</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control input-sm"
             id="@form("communications").id"
             name="@form("communications").name"
             value="@form("communications").value"
@@ -111,7 +111,7 @@
 
     <div class="form-group">
         <label for="@form("counters").id">Виды счетчиков</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control input-sm"
             id="@form("counters").id"
             name="@form("counters").name"
             value="@form("counters").value"
@@ -120,7 +120,7 @@
 
     <div class="form-group">
         <label for="@form("price").id">Цена</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control input-sm"
             id="@form("price").id"
             name="@form("price").name"
             value="@form("price").value"
@@ -129,7 +129,7 @@
 
     <div class="form-group">
         <label for="@form("phone").id">Номер телефона</label>
-        <input type="tel" class="form-control"
+        <input type="tel" class="form-control input-sm"
             id="@form("phone").id"
             name="@form("phone").name"
             value="@form("phone").value"
@@ -138,7 +138,7 @@
 
     <div class="form-group">
         <label for="@form("sub_conditions").id">Дополнительные  условия</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control input-sm"
             id="@form("sub_conditions").id"
             name="@form("sub_conditions").name"
             value="@form("sub_conditions").value"

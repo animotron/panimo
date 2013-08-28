@@ -100,11 +100,12 @@ object Lot {
   }
 
   def store(obj:Lot) = {
+    val path = "./lot/" + obj.id + "/info.json"
     val jsonObject = toJson(obj)
     val text = Json.stringify(jsonObject)
-    if (new java.io.File("./lot/" + obj.id + "/info.json").exists)
-      new java.io.File("./lot/" + obj.id + "/info.json").delete
-    Resource.fromFile("./lot/" + obj.id + "/info.json").write(text)
+    if (new java.io.File(path).exists)
+      new java.io.File(path).delete
+    Resource.fromFile(path).write(text)
 
   }
 
