@@ -2,10 +2,8 @@ package controllers
 
 import play.api._
 import play.api.mvc._
-import models.{Lot, NeoStart, Position}
-import scala.reflect.io.{Directory, File}
-import play.api.libs.json.{Json, JsArray, JsValue, JsObject}
-import play.api.libs.json.Json.JsValueWrapper
+import models.{Lot, NeoStart}
+import play.api.libs.json.{Json, JsArray}
 
 object Application extends Controller {
 
@@ -14,7 +12,7 @@ object Application extends Controller {
   }
 
   def search = Action {
-    Ok(views.html.search("Infostark", Position.all))
+    Ok(views.html.search("Infostark", Lot.all))
   }
 
   def users = Action {
