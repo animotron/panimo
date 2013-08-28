@@ -1,4 +1,4 @@
-@(dir: List[String], form : Form[Lot])
+@(dir: List[Lot], form : Form[Lot])
 
     @styles = {
         <style>
@@ -40,8 +40,8 @@
         <div class="well sidebar-nav">
             <ul class="nav">
                 <li>Lots list</li>
-                @dir.map { file =>
-                    <li><a href="#">@file</a></li>
+                @dir.map { lot =>
+                    <li><a href="@routes.Adminka.view(lot.id)">@lot.id</a></li>
                 }
             </ul>
         </div>

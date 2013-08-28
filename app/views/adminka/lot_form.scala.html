@@ -1,8 +1,8 @@
 @(form: Form[Lot])
 <form role="form" action="@routes.Adminka.add_new" method="post">
     <input type="hidden" name="@form("id").name" id="@form("id").id" value="@form("id").value">
-    <input type="hidden" name="@form("location.latitude").name" id="@form("location.latitude").id" value="@form("location.latitude").value">
-    <input type="hidden" name="@form("location.longitude").name" id="@form("location.longitude").id" value="@form("location.longitude").value">
+    <input type="hidden" name="@form("location.latitude").name" id="@form("location.latitude").id" value="59.933344">
+    <input type="hidden" name="@form("location.longitude").name" id="@form("location.longitude").id" value="30.320206">
     <div class="form-group">
         <label for="@form("location.address.city").id">Город</label>
         <input type="text" class="form-control"
@@ -51,21 +51,29 @@
         value="@form("rooms").value"
         >
     </div>
+    <div class="form-group">
+        <label for="@form("square").id">Общая площадь</label>
+        <input type="text" class="form-control"
+        id="@form("square").id"
+        name="@form("square").name"
+        value="@form("square").value"
+        >
+    </div>
     @helper.repeat(form("spaces"), min = 1) { space =>
             <div class="form-inline">
                 <div class="form-group">
                     <input type="text" class="form-control"
-                        id="@form("name").id"
-                        name="@form("name").name"
-                        value="@form("name").value"
+                        id="@space("name").id"
+                        name="@space("name").name"
+                        value="@space("name").value"
                         placeholder="комната"
                     >
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control"
-                        id="@form("s").id"
-                        name="@form("s").name"
-                        value="@form("s").value"
+                        id="@space("square").id"
+                        name="@space("square").name"
+                        value="@space("square").value"
                         placeholder="площадь"
                     >
                 </div>
@@ -77,7 +85,7 @@
             <input type="checkbox"
                 id="@form("pets").id"
                 name="@form("pets").name"
-                value="@form("pets").value"
+                checked="@form("pets").value"
             > животные
         </label>
     </div>

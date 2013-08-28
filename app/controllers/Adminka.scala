@@ -17,31 +17,50 @@ import java.util.UUID
  */
 object Adminka extends Controller {
 
+  val webForm = Form(
+    mapping(
+      "id" -> text,
+      "location" -> mapping(
+        "latitude" -> text,
+        "longitude" -> text,
+        "address" -> mapping(
+          "city" -> text,
+          "street" -> text,
+          "metro" -> text,
+          "home" -> text
+        )(Address.apply)(Address.unapply)
+      )(Location.apply)(Location.unapply),
+      "rooms" -> number,
+      "level" -> number,
+      "square" -> number,
+      "spaces" -> list(mapping(
+        "name" -> text,
+        "square" -> text
+      )(Space.apply)(Space.unapply)),
+      "pets" -> checked(""),
+      "manageCo" -> text,
+      "communications" -> text,
+      "counters" -> text,
+      "phone" -> text,
+      "sub_conditions" -> text,
+      "price" -> text
+    )(Lot.apply)(Lot.unapply)
+  )
+
   def index = Action {
-    val list = new File(new java.io.File("./lot")).toDirectory.dirs.collect[String]{ case d : Directory => d.name }.toList
-
-    val lot_list: List[String] = new File(new java.io.File("./lot")).toDirectory.dirs.collect[String] {
-      case d: Directory => "./lot/" + d.name + "/info.json"
-    }.toList
-
-    val main = Json.obj("list" -> Json.toJson(
-      lot_list.collect {
-        case path: String =>
-          Json.parse(scala.io.Source.fromFile(path).mkString)
-      }
-    ))
-    Ok(views.html.adminka.index(list, Lot.webForm.fill(Lot.empty)))
+    Ok(views.html.adminka.index(Lot.all, webForm.fill(Lot.empty)))
   }
 
   def add_new = Action { implicit request =>
-
-    Lot.webForm.bindFromRequest.fold(
-      errors => NotFound,
-      success => {
-        Lot.store(success)
-      }
+    val data = webForm.bindFromRequest
+    data.fold(
+      errors => println(errors.errorsAsJson),
+      success => Lot.store(success)
     )
-    Redirect("/admin/", 200)
-//    Ok(TODO.apply(request))
+    Redirect("/admin/")
+  }
+
+  def view(id:String) = Action {
+    Ok(views.html.adminka.index(Lot.all, webForm.fill(Lot.byId(id))))
   }
 }

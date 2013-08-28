@@ -55,7 +55,9 @@ object Lot {
       (obj \ "rooms").as[Int],
       (obj \ "level").as[Int],
       (obj \ "square").as[Int],
-      (obj \\ "spaces").map(Space.fromJson).toList,
+      (obj \\ "spaces").seq.collect{
+        case s : JsObject => Space.fromJson(s)
+      }.toList,
       (obj \ "pets").as[Boolean],
       (obj \ "manageCo").as[String],
       (obj \ "communications").as[String],
@@ -68,7 +70,7 @@ object Lot {
 
   def toJson(obj:Lot) : JsValue = {
     JsObject(Seq(
-      "id" -> toJson(obj),
+      "id" -> Json.toJson(obj.id),
       "location" -> Location.toJson(obj.location),
       "rooms" -> Json.toJson(obj.rooms),
       "level" -> Json.toJson(obj.level),
@@ -89,47 +91,20 @@ object Lot {
   def empty: Lot = {
     new Lot(
       UUID.randomUUID().toString,
-      new Location("", "", new Address("", "", "", "")),
-      0, 0, 0,
-      List.empty[Space],
-      false,
-      "", "", "", "", "", ""
+      new Location("", "", new Address("a", "b", "c", "d")),
+      1, 2, 3,
+      List(new Space("h", "j")),
+      true,
+      "q", "w", "e", "r", "t", "y"
     )
   }
 
-  val webForm = Form(
-    mapping(
-      "id" -> text,
-      "location" -> mapping(
-        "latitude" -> text,
-        "longitude" -> text,
-        "address" -> mapping(
-          "city" -> text,
-          "street" -> text,
-          "metro" -> text,
-          "home" -> text
-        )(Address.apply)(Address.unapply)
-      )(Location.apply)(Location.unapply),
-      "rooms" -> number,
-      "level" -> number,
-      "square" -> number,
-      "spaces" -> list(mapping(
-        "name" -> text,
-        "s" -> text
-      )(Space.apply)(Space.unapply)),
-      "pets" -> checked("pets"),
-      "manageCo" -> text,
-      "communications" -> text,
-      "counters" -> text,
-      "phone" -> text,
-      "sub_conditions" -> text,
-      "price" -> text
-    )(Lot.apply)(Lot.unapply)
-  )
-
   def store(obj:Lot) = {
     val jsonObject = toJson(obj)
-    Resource.fromFile("./lot/" + obj.id + "/info.json").write(Json.stringify(jsonObject))
+    val text = Json.stringify(jsonObject)
+    if (new java.io.File("./lot/" + obj.id + "/info.json").exists)
+      new java.io.File("./lot/" + obj.id + "/info.json").delete
+    Resource.fromFile("./lot/" + obj.id + "/info.json").write(text)
 
   }
 
