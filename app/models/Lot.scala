@@ -31,7 +31,7 @@ case class Lot(
 
   spaces:List[Space],
 
-  pets:Boolean,
+  pets:String,
 
   manageCo:String,
 
@@ -58,7 +58,7 @@ object Lot {
       (obj \\ "spaces").seq.collect{
         case s : JsObject => Space.fromJson(s)
       }.toList,
-      (obj \ "pets").as[Boolean],
+      (obj \ "pets").as[String],
       (obj \ "manageCo").as[String],
       (obj \ "communications").as[String],
       (obj \ "counters").as[String],
@@ -94,7 +94,7 @@ object Lot {
       new Location("", "", new Address("a", "b", "c", "d")),
       1, 2, 3,
       List(new Space("h", "j")),
-      true,
+      "true",
       "q", "w", "e", "r", "t", "y"
     )
   }

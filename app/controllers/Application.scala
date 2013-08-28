@@ -2,8 +2,7 @@ package controllers
 
 import play.api._
 import play.api.mvc._
-import models.NeoStart
-import models.Position
+import models.{Lot, NeoStart, Position}
 import scala.reflect.io.{Directory, File}
 import play.api.libs.json.{Json, JsArray, JsValue, JsObject}
 import play.api.libs.json.Json.JsValueWrapper
@@ -33,15 +32,12 @@ object Application extends Controller {
   }
 
   def allPoints = Action {
-    val lot_list: List[String] = new File(new java.io.File("./lot")).toDirectory.dirs.collect[String] {
-      case d: Directory => "./lot/" + d.name + "/info.json"
-    }.toList
+    val lots = Lot.all
 
-    val main = Json.obj("list" -> Json.toJson(
-      lot_list.collect{
-        case path : String =>
-          Json.parse(scala.io.Source.fromFile(path).mkString)
-      }
+    val main = Json.obj("list" -> JsArray(
+      lots.collect{
+        case lot : Lot => Lot.toJson(lot)
+      }.toSeq
     ))
 
     Ok(Json.stringify(main))

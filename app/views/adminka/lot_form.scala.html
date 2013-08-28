@@ -1,8 +1,8 @@
 @(form: Form[Lot])
 <form role="form" action="@routes.Adminka.add_new" method="post">
     <input type="hidden" name="@form("id").name" id="@form("id").id" value="@form("id").value">
-    <input type="hidden" name="@form("location.latitude").name" id="@form("location.latitude").id" value="59.933344">
-    <input type="hidden" name="@form("location.longitude").name" id="@form("location.longitude").id" value="30.320206">
+    <input type="hidden" name="@form("location.latitude").name" id="@form("location.latitude").id" value="@form("location.latitude").value">
+    <input type="hidden" name="@form("location.longitude").name" id="@form("location.longitude").id" value="@form("location.longitude").value">
     <div class="form-group">
         <label for="@form("location.address.city").id">Город</label>
         <input type="text" class="form-control"
@@ -86,6 +86,7 @@
                 id="@form("pets").id"
                 name="@form("pets").name"
                 checked="@form("pets").value"
+                value="@form("pets").value"
             > животные
         </label>
     </div>
@@ -128,7 +129,7 @@
 
     <div class="form-group">
         <label for="@form("phone").id">Номер телефона</label>
-        <input type="text" class="form-control"
+        <input type="tel" class="form-control"
             id="@form("phone").id"
             name="@form("phone").name"
             value="@form("phone").value"

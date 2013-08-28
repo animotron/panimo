@@ -17,8 +17,8 @@ function createMarker(map, home){
     });
     var infoWindow = new google.maps.InfoWindow({
         position: marker.position,
-        content: "<h4>Info " + home.description.cost + "</h4>" +
-            "<div>" + home.sub_conditions + " <a href='/lot_/" + home.id +
+        content: "<h4>Info " + home.price + "</h4>" +
+            "<div>" + home.sub_conditions + " <a href='/lot/" + home.id +
             "/'>show</a></div>"
     });
     infoWdws.push(infoWindow);

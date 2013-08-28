@@ -37,7 +37,7 @@ object Adminka extends Controller {
         "name" -> text,
         "square" -> text
       )(Space.apply)(Space.unapply)),
-      "pets" -> checked(""),
+      "pets" -> text,
       "manageCo" -> text,
       "communications" -> text,
       "counters" -> text,
