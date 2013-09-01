@@ -12,13 +12,13 @@ case class Position(id : String, label : String)
 object Position {
 
   val all : List[Position] = List(
-    new Position("one", "Flat #1"),
-    new Position("two", "Flat #2"),
-    new Position("tree", "Flat #3"),
-    new Position("four", "Flat #4"),
-    new Position("five", "Flat #5"),
-    new Position("6", "Flat #6"),
-    new Position("7", "Flat #7")
+    Position("one", "Flat #1"),
+    Position("two", "Flat #2"),
+    Position("tree", "Flat #3"),
+    Position("four", "Flat #4"),
+    Position("five", "Flat #5"),
+    Position("6", "Flat #6"),
+    Position("7", "Flat #7")
   )
 
   def byId(s: String) : Position = all.find( _.id == s ).getOrElse(new Position("void", "default"))

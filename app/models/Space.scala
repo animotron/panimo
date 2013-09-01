@@ -1,7 +1,6 @@
 package models
 
 import play.api.libs.json.{Json, JsObject, JsValue}
-import play.api.libs.json.Json._
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,17 +12,15 @@ import play.api.libs.json.Json._
 case class Space(name: String, square: String)
 
 object Space {
-  def fromJson(obj: JsValue): Space = {
-    new Space(
+  def fromJson(obj: JsValue): Space =
+    Space(
       (obj \ "name").as[String],
       (obj \ "square").as[String]
     )
-  }
 
-  def toJson(obj: Space): JsValue = {
+  def toJson(obj: Space): JsValue =
     JsObject(Seq(
       "name" -> Json.toJson(obj.name),
       "square" -> Json.toJson(obj.square)
     ))
-  }
 }

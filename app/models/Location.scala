@@ -1,7 +1,6 @@
 package models
 
 import play.api.libs.json.{Json, JsObject, JsValue}
-import play.api.libs.json.Json._
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,19 +12,17 @@ import play.api.libs.json.Json._
 case class Location(latitude: String, longitude: String, address: Address)
 
 object Location {
-  def fromJson(obj: JsValue): Location = {
-    new Location(
+  def fromJson(obj: JsValue): Location =
+    Location(
       (obj \ "latitude").as[String],
       (obj \ "longitude").as[String],
       Address.fromJson(obj \ "address")
     )
-  }
 
-  def toJson(obj: Location): JsValue = {
+  def toJson(obj: Location): JsValue =
     JsObject(Seq(
       "latitude" -> Json.toJson(obj.latitude),
       "longitude" -> Json.toJson(obj.longitude),
       "address" -> Address.toJson(obj.address)
     ))
-  }
 }

@@ -1,7 +1,6 @@
 package models
 
 import play.api.libs.json.{Json, JsObject, JsValue}
-import play.api.libs.json.Json._
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,21 +12,19 @@ import play.api.libs.json.Json._
 case class Address(city: String, street: String, metro: String, home: String)
 
 object Address {
-  def fromJson(obj: JsValue): Address = {
-    new Address(
+  def fromJson(obj: JsValue): Address =
+    Address(
       (obj \ "city").as[String],
       (obj \ "street").as[String],
       (obj \ "metro").as[String],
       (obj \ "home").as[String]
     )
-  }
 
-  def toJson(obj: Address): JsValue = {
+  def toJson(obj: Address): JsValue =
     JsObject(Seq(
       "city" -> Json.toJson(obj.city),
       "street" -> Json.toJson(obj.street),
       "metro" -> Json.toJson(obj.metro),
       "home" -> Json.toJson(obj.home)
     ))
-  }
 }

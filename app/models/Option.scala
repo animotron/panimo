@@ -1,7 +1,6 @@
 package models
 
 import play.api.libs.json.{Json, JsObject, JsValue}
-import play.api.libs.json.Json._
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,17 +11,15 @@ import play.api.libs.json.Json._
 case class Option(name: String, value: Boolean)
 
 object Option {
-  def fromJson(obj: JsValue): Option = {
-    new Option(
+  def fromJson(obj: JsValue): Option =
+    Option(
       (obj \ "name").as[String],
       (obj \ "value").as[Boolean]
     )
-  }
 
-  def toJson(obj: Option): JsValue = {
+  def toJson(obj: Option): JsValue =
     JsObject(Seq(
       "name" -> Json.toJson(obj.name),
       "value" -> Json.toJson(obj.value)
     ))
-  }
 }
