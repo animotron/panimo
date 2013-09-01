@@ -2,9 +2,13 @@ package models
 
 import scala.reflect.io.{Directory, File}
 import play.api.libs.json.{JsArray, JsValue, JsObject, Json}
-import scalax.io.Resource
+import play.api.libs.json.Json._
+import scalax.io.{Output, Resource}
 import java.util.UUID
+import play.api.data.Form
+import play.api.data.Forms._
 import scala.io.Source
+import java.io.FileNotFoundException
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,37 +19,37 @@ import scala.io.Source
 
 case class Lot(
 
-  id:String,
+                id:String,
 
-  location : Location,
+                location : Location,
 
-  rooms : Int,
+                rooms : Int,
 
-  level : Int,
+                level : Int,
 
-  square: Int,
+                square: Int,
 
-  spaces:List[Space],
+                spaces:List[Space],
 
-  pets:String,
+                pets:String,
 
-  manageCo:String,
+                manageCo:String,
 
-  communications:String,
+                communications:String,
 
-  counters:String,
+                counters:String,
 
-  phone:String, //owner phone
+                phone:String, //owner phone
 
-  sub_conditions:String,
+                sub_conditions:String,
 
-  price:String
+                price:String
 
-)
+                )
 
 object Lot {
-  def fromJson(obj:JsValue) : Lot =
-    Lot(
+  def fromJson(obj:JsValue) : Lot = {
+    new Lot(
       (obj \ "id").as[String],
       Location.fromJson(obj \ "location"),
       (obj \ "rooms").as[Int],
@@ -62,8 +66,9 @@ object Lot {
       (obj \ "sub_conditions").as[String],
       (obj \ "price").as[String]
     )
+  }
 
-  def toJson(obj:Lot) : JsValue =
+  def toJson(obj:Lot) : JsValue = {
     JsObject(Seq(
       "id" -> Json.toJson(obj.id),
       "location" -> Location.toJson(obj.location),
@@ -81,29 +86,33 @@ object Lot {
       "sub_conditions" -> Json.toJson(obj.sub_conditions),
       "price" -> Json.toJson(obj.price)
     ))
+  }
 
-  def empty: Lot =
-    Lot(
+  def empty: Lot = {
+    new Lot(
       UUID.randomUUID().toString,
-      Location("", "", Address("a", "b", "c", "d")),
+      new Location("", "", new Address("a", "b", "c", "d")),
       1, 2, 3,
-      List(Space("h", "j")),
+      List(new Space("h", "j")),
       "true",
       "q", "w", "e", "r", "t", "y"
     )
+  }
 
   def store(obj:Lot) = {
+    val path = "./lot/" + obj.id + "/info.json"
     val jsonObject = toJson(obj)
     val text = Json.stringify(jsonObject)
-    if (new java.io.File("./lot/" + obj.id + "/info.json").exists)
-      new java.io.File("./lot/" + obj.id + "/info.json").delete
-    Resource.fromFile("./lot/" + obj.id + "/info.json").write(text)
+    if (new java.io.File(path).exists)
+      new java.io.File(path).delete
+    Resource.fromFile(path).write(text)
   }
 
   def all : List[Lot] = {
     val lot_list: List[String] = new File(new java.io.File("./lot")).toDirectory.dirs.collect[String] {
       case d: Directory => "./lot/" + d.name + "/info.json"
     }.toList
+
     lot_list.collect {
       case path: String =>
         val jsLot = Json.parse(Source.fromFile(path).mkString)
@@ -116,5 +125,4 @@ object Lot {
     if (file.isEmpty) null
     else fromJson(Json.parse(file))
   }
-
 }
