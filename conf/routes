@@ -17,6 +17,8 @@ GET         /ws                    controllers.Users.ws
 POST        /users/login           controllers.Users.login
 POST        /users/register        controllers.Users.register
 
+POST        /        controllers.Adminka.upload()
+
 GET         /lot/all               controllers.Application.allPoints
 GET         /lot/:id/              controllers.Application.lot(id:String)
 GET         /lot/*file             controllers.Assets.at(path="/lot", file)

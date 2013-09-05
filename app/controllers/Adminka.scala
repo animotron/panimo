@@ -63,4 +63,19 @@ object Adminka extends Controller {
   def edit(id:String) = Action {
     Ok(views.html.adminka.index(Lot.all, webForm.fill(Lot.byId(id))))
   }
+
+  def upload = Action(parse.multipartFormData) {
+    request =>
+      request.body.file("picture").map {
+        picture =>
+          import java.io.File
+          val filename = picture.filename
+          val contentType = picture.contentType
+          picture.ref.moveTo(new File(s"./tmp/$filename"))
+          Ok("File uploaded")
+      }.getOrElse {
+        Redirect(routes.Adminka.index).flashing(
+          "error" -> "Missing file")
+      }
+  }
 }
