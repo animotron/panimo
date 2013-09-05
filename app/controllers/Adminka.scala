@@ -51,7 +51,7 @@ object Adminka extends Controller {
     Ok(views.html.adminka.index(Lot.all, webForm.fill(Lot.empty)))
   }
 
-  def add_new = Action { implicit request =>
+  def add = Action {implicit request =>
     val data = webForm.bindFromRequest
     data.fold(
       errors => println(errors.errorsAsJson),
@@ -60,7 +60,7 @@ object Adminka extends Controller {
     Redirect("/admin/")
   }
 
-  def view(id:String) = Action {
+  def edit(id:String) = Action {
     Ok(views.html.adminka.index(Lot.all, webForm.fill(Lot.byId(id))))
   }
 }

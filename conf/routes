@@ -7,8 +7,8 @@ GET         /                      controllers.Application.index
 GET         /search                controllers.Application.search
 
 GET         /admin/                controllers.Adminka.index
-POST        /admin/add             controllers.Adminka.add_new
-GET         /admin/view/:id        controllers.Adminka.view(id:String)
+POST        /admin/add             controllers.Adminka.add
+GET         /admin/edit/:id        controllers.Adminka.edit(id:String)
 
 GET         /users                 controllers.Application.users
 GET         /play-help             controllers.Application.playHelp
