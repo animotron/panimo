@@ -5,6 +5,7 @@ import play.api.libs.json.{JsArray, JsValue, JsObject, Json}
 import scalax.io.Resource
 import java.util.UUID
 import scala.io.Source
+import java.io
 
 /**
  * Created with IntelliJ IDEA.
@@ -89,17 +90,20 @@ object Lot {
 
   def all : List[Lot] = {
     new File(new java.io.File("./lot")).toDirectory.dirs.collect[String] {
-      case d: Directory => "./lot/" + d.name + "/info.json"
+      case d: Directory => d.name
     }.toList.collect{
-      case path: String => fromJson(
+      case id: String =>
+        val path = "./lot/" + id + "/info.json"
+        if (new io.File(path).exists()) fromJson(
           Json.parse(Source.fromFile(path).mkString)
-        )
+        ) else
+          empty.copy(id = id)
     }.toList
   }
 
   def byId(id:String) : Lot = {
-    val file = Source.fromFile("./lot/" + id + "/info.json").mkString
-    if (file.isEmpty) null
-    else fromJson(Json.parse(file))
+    val path = "./lot/" + id + "/info.json"
+    if (new io.File(path).exists()) fromJson(Json.parse(Source.fromFile(path).mkString))
+    else empty.copy(id = id)
   }
 }

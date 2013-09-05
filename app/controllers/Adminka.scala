@@ -69,7 +69,7 @@ object Adminka extends Controller {
           val id = request.body.dataParts.get("id").get.head
           val filename = zip.filename
           zip.ref.moveTo(new File(s"lot/$id/$filename"))
-          Ok("File uploaded")
+          Redirect(routes.Adminka.edit(id))
       }.getOrElse {
         Redirect(routes.Adminka.index).flashing(
           "error" -> "Missing file")
