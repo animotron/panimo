@@ -144,15 +144,12 @@
             value="@form("sub_conditions").value"
         >
     </div>
-    <input type="file"/>
     <button type="submit">add</button>
 </form>
     @helper.form(action = routes.Adminka.upload, 'enctype -> "multipart/form-data") {
         <input type="hidden" name="@form("id").name" id="@form("id").id" value="@form("id").value">
-        <input type="file" name="picture">
-
+        <input type="file" name="zip">
         <p>
             <input type="submit">
         </p>
-
     }
