@@ -88,13 +88,12 @@ object Lot {
   }
 
   def all : List[Lot] = {
-    val lot_list: List[String] = new File(new java.io.File("./lot")).toDirectory.dirs.collect[String] {
+    new File(new java.io.File("./lot")).toDirectory.dirs.collect[String] {
       case d: Directory => "./lot/" + d.name + "/info.json"
-    }.toList
-    lot_list.collect {
-      case path: String =>
-        val jsLot = Json.parse(Source.fromFile(path).mkString)
-        fromJson(jsLot)
+    }.toList.collect{
+      case path: String => fromJson(
+          Json.parse(Source.fromFile(path).mkString)
+        )
     }.toList
   }
 

@@ -63,6 +63,7 @@ object Adminka extends Controller {
 
   def upload = Action(parse.multipartFormData) {
     request =>
+      println(request.body.dataParts.get("id").get.head)
       request.body.file("picture").map {
         picture =>
           import java.io.File
