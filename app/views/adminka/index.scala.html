@@ -24,7 +24,8 @@
     var map ;
     var marker = null;
     function initialize ( ) {
-        var myLatLng = new google.maps.LatLng(59.933344, 30.320206);
+        var myLatLng = new google.maps.LatLng ( $ ( "#location_latitude" ).val ( ), $ ( "#location_longitude" ).val ( ) );
+        //new google.maps.LatLng(59.933344, 30.320206);
         var mapOptions = {
             zoom : 12,
             center : myLatLng,
@@ -48,11 +49,13 @@
 @main("Admin panel", styles, scripts) {
     @nav()
 <div class="row">
-    <div class="col-md-4 col-md-offset-3">
+    <div class="col-md-3 col-md-offset-1">
         <div id="map"><div id="map-canvas"></div></div>
+    </div>
+    <div class="col-md-3">
         @lot_form(form)
     </div>
-    <div class="col-md-3 col-md-offset-1 sidebar-offcanvas" id="sidebar" role="navigation">
+    <div class="col-md-2 col-md-offset-1 sidebar-offcanvas" id="sidebar" role="navigation">
         <div class="well sidebar-nav">
             <ul class="nav">
                 <li>Lots list</li>

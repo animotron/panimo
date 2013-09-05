@@ -73,7 +73,7 @@ object Lot {
       UUID.randomUUID().toString,
       Location("", "", Address("a", "b", "c", "d")),
       1, 2, 3,
-      List(Space("h", "j")),
+      List(Space("h", "j"), Space("h", "j"), Space("h", "j")),
       "true",
       "q", "w", "e", "r", "t", "y"
     )

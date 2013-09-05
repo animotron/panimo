@@ -2,12 +2,9 @@ package controllers
 
 import play.api._
 import play.api.mvc._
-import scala.reflect.io.{Directory, File}
 import play.api.data._
 import play.api.data.Forms._
 import models.{Space, Location, Address, Lot}
-import play.api.libs.json.Json
-import java.util.UUID
 
 /**
  * Created with IntelliJ IDEA.
