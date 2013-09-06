@@ -1,10 +1,13 @@
 package controllers
 
-import play.api._
+import java.io.File
+import scala.collection.JavaConversions._
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import models.{Space, Location, Address, Lot}
+import java.util.zip.ZipFile
+import java.io.FileOutputStream
 
 /**
  * Created with IntelliJ IDEA.
@@ -65,10 +68,27 @@ object Adminka extends Controller {
     request =>
       request.body.file("zip").map {
         zip =>
-          import java.io.File
           val id = request.body.dataParts.get("id").get.head
-          val filename = zip.filename
-          zip.ref.moveTo(new File(s"lot/$id/$filename"))
+          val trg = new File(s"lot/$id")
+          val z = new ZipFile(zip.ref.file)
+          z.entries.
+            filter { e =>
+              ! e.isDirectory && (
+                e.getName.equals("out.xml") || e.getName.endsWith(".jpg")
+                )
+            }.
+            foreach { e =>
+              System.out.println(e.getName)
+              val is = z.getInputStream(e)
+              val f = new File(trg, e.getName)
+              f.getParentFile.mkdirs()
+              val os = new FileOutputStream(f)
+              Iterator
+                .continually (is.read)
+                .takeWhile (-1 !=)
+                .foreach (os.write)
+            os.close()
+            }
           Redirect(routes.Adminka.edit(id))
       }.getOrElse {
         Redirect(routes.Adminka.index).flashing(
