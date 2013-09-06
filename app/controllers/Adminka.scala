@@ -70,25 +70,28 @@ object Adminka extends Controller {
         zip =>
           val id = request.body.dataParts.get("id").get.head
           val trg = new File(s"lot/$id")
-          val z = new ZipFile(zip.ref.file)
+          val tmp = new File(trg, zip.filename)
+          zip.ref.moveTo(tmp, true)
+          val z = new ZipFile(tmp)
           z.entries.
-            filter { e =>
-              ! e.isDirectory && (
-                e.getName.equals("out.xml") || e.getName.endsWith(".jpg")
-                )
-            }.
+            filter ( e =>
+              ! e.isDirectory && //(
+                e.getName.equals("out.xml") //|| e.getName.endsWith(".jpg")
+                //)
+            ).
             foreach { e =>
               System.out.println(e.getName)
-              val is = z.getInputStream(e)
-              val f = new File(trg, e.getName)
-              f.getParentFile.mkdirs()
-              val os = new FileOutputStream(f)
-              Iterator
-                .continually (is.read)
-                .takeWhile (-1 !=)
-                .foreach (os.write)
-            os.close()
+//              val is = z.getInputStream(e)
+//              val f = new File(trg, e.getName)
+//              f.getParentFile.mkdirs()
+//              val os = new FileOutputStream(f)
+//              Iterator
+//                .continually (is.read)
+//                .takeWhile (-1 !=)
+//                .foreach (os.write)
+//              os.close()
             }
+          tmp.delete()
           Redirect(routes.Adminka.edit(id))
       }.getOrElse {
         Redirect(routes.Adminka.index).flashing(
