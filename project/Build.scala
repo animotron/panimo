@@ -10,6 +10,7 @@ object ApplicationBuild extends Build {
   val appDependencies = Seq(
     // Add your project dependencies here,
     //cache
+    "org.apache.commons" % "commons-compress" % "1.5",
     "org.neo4j" % "neo4j-kernel" % "1.9.2"
 //    "securesocial" %% "securesocial" % "2.0.12",
 //    "com.imaginea" %% "socket.io.play" % "0.0.3-SNAPSHOT"

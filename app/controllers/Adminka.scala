@@ -1,13 +1,11 @@
 package controllers
 
-import java.io.File
-import scala.collection.JavaConversions._
+import java.io.{BufferedOutputStream, BufferedInputStream, File, FileOutputStream}
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import models.{Space, Location, Address, Lot}
-import java.util.zip.ZipFile
-import java.io.FileOutputStream
+import org.apache.commons.compress.archivers.zip.ZipFile
 
 /**
  * Created with IntelliJ IDEA.
@@ -70,28 +68,34 @@ object Adminka extends Controller {
         zip =>
           val id = request.body.dataParts.get("id").get.head
           val trg = new File(s"lot/$id")
-          val tmp = new File(trg, zip.filename)
-          zip.ref.moveTo(tmp, true)
-          val z = new ZipFile(tmp)
-          z.entries.
-            filter ( e =>
-              ! e.isDirectory && //(
-                e.getName.equals("out.xml") //|| e.getName.endsWith(".jpg")
-                //)
-            ).
-            foreach { e =>
-              System.out.println(e.getName)
-//              val is = z.getInputStream(e)
+          trg.mkdir()
+          val img = new File(trg, "images")
+          img.mkdir()
+          val out = new File(trg, "out.xml")
+          val z = new ZipFile(new File(zip.ref.file.getPath), "cp866")
+          val entries = z.getEntries
+          while (entries.hasMoreElements) {
+            val entry = entries.nextElement()
+            val name = new File(entry.getName).getName
+            def store (file: File) = {
+              val is = new BufferedInputStream(z.getInputStream(entry))
+              val os = new BufferedOutputStream(new FileOutputStream(file))
+              Iterator
+                .continually (is.read)
+                .takeWhile (-1 !=)
+                .foreach (os.write)
+              os.close()
+              is.close()
+            }
+            if (name.equals("out.xml")) store(out)
+            else if (name.endsWith(".jpg")) store(new File(img, name))
+          }
+//            if (! e. isDirectory //&&
+//              //e.getName.equals("out.xml")
+//            ) {
 //              val f = new File(trg, e.getName)
 //              f.getParentFile.mkdirs()
-//              val os = new FileOutputStream(f)
-//              Iterator
-//                .continually (is.read)
-//                .takeWhile (-1 !=)
-//                .foreach (os.write)
-//              os.close()
-            }
-          tmp.delete()
+//              val iz = z.getInputStream(e)
           Redirect(routes.Adminka.edit(id))
       }.getOrElse {
         Redirect(routes.Adminka.index).flashing(
