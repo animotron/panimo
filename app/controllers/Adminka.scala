@@ -70,6 +70,10 @@ object Adminka extends Controller {
           val trg = new File(s"lot/$id")
           trg.mkdir()
           val img = new File(trg, "images")
+          if (img.exists()) {
+            for (f <- img.listFiles) yield f.delete
+            img.delete()
+          }
           img.mkdir()
           val out = new File(trg, "out.xml")
           val z = new ZipFile(new File(zip.ref.file.getPath), "cp866")
@@ -90,12 +94,6 @@ object Adminka extends Controller {
             if (name.equals("out.xml")) store(out)
             else if (name.endsWith(".jpg")) store(new File(img, name))
           }
-//            if (! e. isDirectory //&&
-//              //e.getName.equals("out.xml")
-//            ) {
-//              val f = new File(trg, e.getName)
-//              f.getParentFile.mkdirs()
-//              val iz = z.getInputStream(e)
           Redirect(routes.Adminka.edit(id))
       }.getOrElse {
         Redirect(routes.Adminka.index).flashing(
