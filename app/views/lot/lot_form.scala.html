@@ -1,11 +1,5 @@
 @(id: String, form: Form[Lot])
-@helper.form(action = routes.Lot.upload(id), 'enctype -> "multipart/form-data") {
-    <input type="hidden" name="@form("id").name" id="@form("id").id" value="@form("id").value">
-    <input type="file" name="zip">
-    <p>
-        <input type="submit">
-    </p>
-}
+
 <form role="form" action="@routes.Lot.store(id)" method="post">
     <input type="hidden" name="@form("id").name" id="@form("id").id" value="@form("id").value">
     <input type="hidden" name="@form("location.latitude").name" id="@form("location.latitude").id" value="@form("location.latitude").value">
@@ -35,11 +29,11 @@
         >
     </div>
     <div class="form-group">
-        <label for="@form("location.address.home").id">Дом</label>
+        <label for="@form("location.address.house").id">Дом</label>
         <input type="text" class="form-control input-sm"
-            id="@form("location.address.home").id"
-            name="@form("location.address.home").name"
-            value="@form("location.address.home").value"
+            id="@form("location.address.house").id"
+            name="@form("location.address.house").name"
+            value="@form("location.address.house").value"
         >
     </div>
     <div class="form-group">
@@ -151,5 +145,13 @@
             value="@form("sub_conditions").value"
         >
     </div>
-    <button type="submit">add</button>
+    <button type="submit">Сохранить</button>
 </form>
+
+@helper.form(action = routes.Lot.upload(id), 'enctype -> "multipart/form-data") {
+    <div class="form-group">
+        <label for="zip">Архив с панорамой</label>
+        <input type="file" name="zip" id="zip">
+    </div>
+    <button type="submit">Загрузить</button>
+}

@@ -1,15 +1,21 @@
 @(id: String, form : Form[Lot])
     @styles = {
         <style>
+            #map {
+                position: fixed;
+                right: 0;
+                top: 0;
+            }
         </style>
     }
 
 @scripts = {
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script>
-    function resize () {
-        $("#map-canvas").width($(".col-md-4" ).innerWidth ( ) ).height ( $ ( ".col-md-4" ).innerWidth ( ) ) ;
+    function resize() {
+        $("#map-canvas" ).width($(".col-md-9").innerWidth()).height($(window).innerHeight());
     }
+    $(window ).resize(resize);
     function onMarker(position, map){
         if (marker != null) marker.setMap(null);
         marker = new google.maps.Marker({
@@ -45,19 +51,21 @@
 </script>
 }
 
-@main("Admin panel", styles, scripts) {
-    @nav()
-<div class="row">
-    <div class="col-md-3 col-md-offset-1">
-        <div id="map"><div id="map-canvas"></div></div>
+@main("Lot #" + id, styles, scripts) {
+    <div id="map"><div id="map-canvas"></div></div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="container">
+                <nav class="navbar" role="navigation">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/"><img src="@routes.Assets.at("/public", "logo/logo.svg")" height="40"></a>
+                    </div>
+                </nav>
+                @lot_form(id, form)
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div id="map"><div id="map-canvas"></div></div>
+        </div>
     </div>
-    <div class="col-md-3">
-        @lot_form(id, form)
-    </div>
-    <div class="col-md-2 col-md-offset-1 sidebar-offcanvas" id="sidebar" role="navigation">
-        <!--/.well -->
-    </div>
-    <!--/span-->
-</div><!--/row-->
-<script type="text/javascript" src='@routes.Assets.at("/public", "main.css")'></script>
 }

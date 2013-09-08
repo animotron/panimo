@@ -61,6 +61,10 @@ object Lot extends Controller {
     Ok(Json.stringify(main))
   }
 
+  def edit(id: String) = Action {
+    Ok(views.html.lot.edit(id, webForm.fill(models.Lot.byId(id))))
+  }
+
   def add = Action {implicit request =>
     val data = webForm.bindFromRequest
     data.fold(
@@ -70,12 +74,13 @@ object Lot extends Controller {
     Redirect("/admin/")
   }
 
-  def edit(id: String) = Action {
-    Ok(views.html.lot.edit(id, webForm.fill(models.Lot.byId(id))))
-  }
-
-  def store(id: String) = Action {
-    Ok(views.html.lot.edit(id, webForm.fill(models.Lot.byId(id))))
+  def store(id: String) = Action {implicit request =>
+    val data = webForm.bindFromRequest
+    data.fold(
+      errors => println(errors.errorsAsJson),
+      success => models.Lot.store(success)
+    )
+    Redirect(routes.Lot.edit(id))
   }
 
   def upload(id: String) = Action(parse.multipartFormData) {
@@ -108,6 +113,6 @@ object Lot extends Controller {
             else if (name.endsWith(".jpg")) store(new File(img, name))
           }
       }
-      Ok("")
+      Redirect(routes.Lot.edit(id))
   }
 }

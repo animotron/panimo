@@ -25,6 +25,6 @@ object Address {
       "city" -> Json.toJson(obj.city),
       "street" -> Json.toJson(obj.street),
       "metro" -> Json.toJson(obj.metro),
-      "home" -> Json.toJson(obj.house)
+      "house" -> Json.toJson(obj.house)
     ))
 }
