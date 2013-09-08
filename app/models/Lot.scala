@@ -72,11 +72,11 @@ object Lot {
   def empty: Lot =
     Lot(
       UUID.randomUUID().toString,
-      Location("", "", Address("a", "b", "c", "d")),
+      Location("59.95", "30.30", Address("", "", "", "")),
       1, 2, 3,
-      List(Space("h", "j"), Space("h", "j"), Space("h", "j")),
+      List(Space("", ""), Space("", ""), Space("", "")),
       "true",
-      "q", "w", "e", "r", "t", "y"
+      "", "", "", "", "", ""
     )
 
   def store(obj:Lot) = {

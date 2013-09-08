@@ -13,7 +13,7 @@ POST        /users/login           controllers.Users.login
 POST        /users/register        controllers.Users.register
 
 GET         /lots                  controllers.Lot.lots
-POST        /lot/add               controllers.Lot.add
+GET         /lot/add               controllers.Lot.add
 GET         /lot/:id/              controllers.Lot.lot(id)
 GET         /lot/:id/edit          controllers.Lot.edit(id)
 POST        /lot/:id/store         controllers.Lot.store(id)

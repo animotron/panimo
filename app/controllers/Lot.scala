@@ -65,13 +65,9 @@ object Lot extends Controller {
     Ok(views.html.lot.edit(id, webForm.fill(models.Lot.byId(id))))
   }
 
-  def add = Action {implicit request =>
-    val data = webForm.bindFromRequest
-    data.fold(
-      errors => println(errors.errorsAsJson),
-      success => models.Lot.store(success)
-    )
-    Redirect("/admin/")
+  def add = Action {
+    val lot = models.Lot.empty
+    Ok(views.html.lot.edit(lot.id, webForm.fill(lot)))
   }
 
   def store(id: String) = Action {implicit request =>
