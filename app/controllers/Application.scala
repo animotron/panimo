@@ -1,6 +1,5 @@
 package controllers
 
-import play.api._
 import play.api.mvc._
 import models.{Lot, NeoStart}
 import play.api.libs.json.{Json, JsArray}
@@ -12,32 +11,11 @@ object Application extends Controller {
   }
 
   def search = Action {
-    Ok(views.html.search("Infostark", Lot.all))
+    Ok(views.html.lot.search("Infostark", models.Lot.all))
   }
 
   def users = Action {
     NeoStart.increase
     Ok(views.html.users(NeoStart.mainName))
-  }
-
-  def playHelp = Action {
-    Ok(views.html.p_help())
-  }
-
-  def lot(id: String) = Action {
-    val info = Json.parse(scala.io.Source.fromFile("./lot/" + id + "/info.json").mkString)
-    Ok(views.html.lot(AnyContentAsJson(info)))
-  }
-
-  def allPoints = Action {
-    val lots = Lot.all
-
-    val main = Json.obj("list" -> JsArray(
-      lots.collect{
-        case lot : Lot => Lot.toJson(lot)
-      }.toSeq
-    ))
-
-    Ok(Json.stringify(main))
   }
 }

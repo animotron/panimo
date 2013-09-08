@@ -4,8 +4,9 @@ import java.io.{BufferedOutputStream, BufferedInputStream, File, FileOutputStrea
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import models.{Space, Location, Address, Lot}
+import models.{Lot, Space, Location, Address}
 import org.apache.commons.compress.archivers.zip.ZipFile
+import play.api.libs.json.{JsArray, Json}
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,7 +14,7 @@ import org.apache.commons.compress.archivers.zip.ZipFile
  *         Date: 23.08.13
  *         Time: 23:21
  */
-object Adminka extends Controller {
+object Lot extends Controller {
 
   val webForm = Form(
     mapping(
@@ -42,41 +43,43 @@ object Adminka extends Controller {
       "phone" -> text,
       "sub_conditions" -> text,
       "price" -> text
-    )(Lot.apply)(Lot.unapply)
+    )(models.Lot.apply)(models.Lot.unapply)
   )
 
-  def index = Action {
-    Ok(views.html.adminka.index(Lot.all, webForm.fill(Lot.empty)))
+  def lot(id: String) = Action {
+    val info = Json.parse(scala.io.Source.fromFile("./lot/" + id + "/info.json").mkString)
+    Ok(views.html.lot.lot(AnyContentAsJson(info)))
   }
 
   def add = Action {implicit request =>
     val data = webForm.bindFromRequest
     data.fold(
       errors => println(errors.errorsAsJson),
-      success => Lot.store(success)
+      success => models.Lot.store(success)
     )
     Redirect("/admin/")
   }
 
-  def edit(id:String) = Action {
-    Ok(views.html.adminka.index(Lot.all, webForm.fill(Lot.byId(id))))
+  def edit(id: String) = Action {
+    Ok(views.html.lot.lot_form(webForm.fill(models.Lot.byId(id))))
   }
 
-  def upload = Action(parse.multipartFormData) {
+  def store(id: String) = Action {
+    Ok(views.html.lot.lot_form(webForm.fill(models.Lot.byId(id))))
+  }
+
+  def upload(id: String) = Action(parse.multipartFormData) {
     request =>
       request.body.file("zip").map {
         zip =>
-          val id = request.body.dataParts.get("id").get.head
           val trg = new File(s"lot/$id")
           trg.mkdir()
           val img = new File(trg, "images")
-          if (img.exists()) {
+          if (img.exists())
             for (f <- img.listFiles) yield f.delete
-            img.delete()
-          }
-          img.mkdir()
+          else img.mkdir()
           val out = new File(trg, "out.xml")
-          val z = new ZipFile(new File(zip.ref.file.getPath), "cp866")
+          val z = new ZipFile(new File(zip.ref.file.getPath))
           val entries = z.getEntries
           while (entries.hasMoreElements) {
             val entry = entries.nextElement()
@@ -94,10 +97,7 @@ object Adminka extends Controller {
             if (name.equals("out.xml")) store(out)
             else if (name.endsWith(".jpg")) store(new File(img, name))
           }
-          Redirect(routes.Adminka.edit(id))
-      }.getOrElse {
-        Redirect(routes.Adminka.index).flashing(
-          "error" -> "Missing file")
       }
+      Ok("")
   }
 }

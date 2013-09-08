@@ -6,21 +6,17 @@
 GET         /                      controllers.Application.index
 GET         /search                controllers.Application.search
 
-GET         /admin/                controllers.Adminka.index
-POST        /admin/add             controllers.Adminka.add
-GET         /admin/edit/:id        controllers.Adminka.edit(id:String)
-
 GET         /users                 controllers.Application.users
-GET         /play-help             controllers.Application.playHelp
 GET         /ws                    controllers.Users.ws
 
 POST        /users/login           controllers.Users.login
 POST        /users/register        controllers.Users.register
 
-POST        /        controllers.Adminka.upload()
-
-GET         /lot/all               controllers.Application.allPoints
-GET         /lot/:id/              controllers.Application.lot(id:String)
+POST        /lot/add               controllers.Lot.add
+GET         /lot/:id               controllers.Lot.lot(id:String)
+GET         /lot/:id/edit          controllers.Lot.edit(id:String)
+POST        /lot/:id/store         controllers.Lot.store(id:String)
+POST        /lot/:id/upload        controllers.Lot.upload(id:String)
 GET         /lot/*file             controllers.Assets.at(path="/lot", file)
 
 # Map static resources from the /public folder to the /assets URL path
