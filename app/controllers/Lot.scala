@@ -26,7 +26,7 @@ object Lot extends Controller {
           "city" -> text,
           "street" -> text,
           "metro" -> text,
-          "home" -> text
+          "house" -> text
         )(Address.apply)(Address.unapply)
       )(Location.apply)(Location.unapply),
       "rooms" -> number,
@@ -48,7 +48,7 @@ object Lot extends Controller {
 
   def lot(id: String) = Action {
     val info = Json.parse(scala.io.Source.fromFile("./lot/" + id + "/info.json").mkString)
-    Ok(views.html.lot.lot(AnyContentAsJson(info)))
+    Ok(views.html.lot.lot(models.Lot.fromJson(info)))
   }
 
   def lots = Action {
@@ -71,11 +71,11 @@ object Lot extends Controller {
   }
 
   def edit(id: String) = Action {
-    Ok(views.html.lot.lot_form(webForm.fill(models.Lot.byId(id))))
+    Ok(views.html.lot.edit(id, webForm.fill(models.Lot.byId(id))))
   }
 
   def store(id: String) = Action {
-    Ok(views.html.lot.lot_form(webForm.fill(models.Lot.byId(id))))
+    Ok(views.html.lot.edit(id, webForm.fill(models.Lot.byId(id))))
   }
 
   def upload(id: String) = Action(parse.multipartFormData) {

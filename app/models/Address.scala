@@ -9,7 +9,7 @@ import play.api.libs.json.{Json, JsObject, JsValue}
  *         Time: 6:00
  */
 
-case class Address(city: String, street: String, metro: String, home: String)
+case class Address(city: String, street: String, metro: String, house: String)
 
 object Address {
   def fromJson(obj: JsValue): Address =
@@ -17,7 +17,7 @@ object Address {
       (obj \ "city").as[String],
       (obj \ "street").as[String],
       (obj \ "metro").as[String],
-      (obj \ "home").as[String]
+      (obj \ "house").as[String]
     )
 
   def toJson(obj: Address): JsValue =
@@ -25,6 +25,6 @@ object Address {
       "city" -> Json.toJson(obj.city),
       "street" -> Json.toJson(obj.street),
       "metro" -> Json.toJson(obj.metro),
-      "home" -> Json.toJson(obj.home)
+      "home" -> Json.toJson(obj.house)
     ))
 }

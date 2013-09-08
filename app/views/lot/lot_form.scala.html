@@ -1,5 +1,12 @@
-@(form: Form[Lot])
-<form role="form" action="@routes.Lot.store(form("id").id)" method="post">
+@(id: String, form: Form[Lot])
+@helper.form(action = routes.Lot.upload(id), 'enctype -> "multipart/form-data") {
+    <input type="hidden" name="@form("id").name" id="@form("id").id" value="@form("id").value">
+    <input type="file" name="zip">
+    <p>
+        <input type="submit">
+    </p>
+}
+<form role="form" action="@routes.Lot.store(id)" method="post">
     <input type="hidden" name="@form("id").name" id="@form("id").id" value="@form("id").value">
     <input type="hidden" name="@form("location.latitude").name" id="@form("location.latitude").id" value="@form("location.latitude").value">
     <input type="hidden" name="@form("location.longitude").name" id="@form("location.longitude").id" value="@form("location.longitude").value">
@@ -146,10 +153,3 @@
     </div>
     <button type="submit">add</button>
 </form>
-    @helper.form(action = routes.Lot.upload(form("id").id), 'enctype -> "multipart/form-data") {
-        <input type="hidden" name="@form("id").name" id="@form("id").id" value="@form("id").value">
-        <input type="file" name="zip">
-        <p>
-            <input type="submit">
-        </p>
-    }

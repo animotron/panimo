@@ -1,0 +1,28 @@
+{
+    "id":"8e2992b9-bad8-475c-889e-f948552685e0",
+    "location":{
+        "latitude":"59.90891042881661",
+        "longitude":"30.353851318359375",
+        "address":{
+            "city":"Санкт Петербург",
+            "street":"Невскикий проспект",
+            "metro":"Красные ворота",
+            "house":"158"
+        }
+    },
+    "rooms":2,
+    "level":2,
+    "square":38,
+    "spaces":[
+        {"name":"h","square":"j"},
+        {"name":"h","square":"j"},
+        {"name":"h","square":"j"}
+    ],
+    "pets":"true",
+    "manageCo":"q",
+    "communications":"w",
+    "counters":"e",
+    "phone":"+79612345678",
+    "sub_conditions":"t",
+    "price":"100500"
+}

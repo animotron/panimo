@@ -14,10 +14,10 @@ POST        /users/register        controllers.Users.register
 
 GET         /lots                  controllers.Lot.lots
 POST        /lot/add               controllers.Lot.add
-GET         /lot/:id/              controllers.Lot.lot(id:String)
-GET         /lot/:id/edit          controllers.Lot.edit(id:String)
-POST        /lot/:id/store         controllers.Lot.store(id:String)
-POST        /lot/:id/upload        controllers.Lot.upload(id:String)
+GET         /lot/:id/              controllers.Lot.lot(id)
+GET         /lot/:id/edit          controllers.Lot.edit(id)
+POST        /lot/:id/store         controllers.Lot.store(id)
+POST        /lot/:id/upload        controllers.Lot.upload(id)
 GET         /lot/*file             controllers.Assets.at(path="/lot", file)
 
 # Map static resources from the /public folder to the /assets URL path
