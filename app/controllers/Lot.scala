@@ -51,6 +51,16 @@ object Lot extends Controller {
     Ok(views.html.lot.lot(AnyContentAsJson(info)))
   }
 
+  def lots = Action {
+    val lots = models.Lot.all
+    val main = Json.obj("list" -> JsArray(
+      lots.collect {
+        case lot : Lot => models.Lot.toJson(lot)
+      }.toSeq
+    ))
+    Ok(Json.stringify(main))
+  }
+
   def add = Action {implicit request =>
     val data = webForm.bindFromRequest
     data.fold(
