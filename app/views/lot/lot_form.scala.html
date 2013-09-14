@@ -5,11 +5,19 @@
     <input type="hidden" name="@form("location.latitude").name" id="@form("location.latitude").id" value="@form("location.latitude").value">
     <input type="hidden" name="@form("location.longitude").name" id="@form("location.longitude").id" value="@form("location.longitude").value">
     <div class="form-group">
+        <label for="@form("title").id">Название</label>
+        <input type="text" class="form-control input-sm"
+        id="@form("title").id"
+        name="@form("title").name"
+        value="@form("title").value"
+        >
+    </div>
+    <div class="form-group">
         <label for="@form("location.address.city").id">Город</label>
         <input type="text" class="form-control input-sm"
-            id="@form("location.address.city").id"
-            name="@form("location.address.city").name"
-            value="@form("location.address.city").value"
+        id="@form("location.address.city").id"
+        name="@form("location.address.city").name"
+        value="@form("location.address.city").value"
         >
     </div>
     <div class="form-group">

@@ -19,6 +19,7 @@ object Lot extends Controller {
   val webForm = Form(
     mapping(
       "id" -> text,
+      "title" -> text,
       "location" -> mapping(
         "latitude" -> text,
         "longitude" -> text,

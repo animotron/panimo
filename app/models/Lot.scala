@@ -16,6 +16,7 @@ import java.io
 
 case class Lot(
                 id:String,
+                title:String,
                 location : Location,
                 rooms : Int,
                 level : Int,
@@ -34,6 +35,7 @@ object Lot {
   def fromJson(obj:JsValue) : Lot =
     Lot(
       (obj \ "id").as[String],
+      (obj \ "title").as[String],
       Location.fromJson(obj \ "location"),
       (obj \ "rooms").as[Int],
       (obj \ "level").as[Int],
@@ -53,6 +55,7 @@ object Lot {
   def toJson(obj:Lot) : JsValue =
     JsObject(Seq(
       "id" -> Json.toJson(obj.id),
+      "title" -> Json.toJson(obj.id),
       "location" -> Location.toJson(obj.location),
       "rooms" -> Json.toJson(obj.rooms),
       "level" -> Json.toJson(obj.level),
@@ -71,7 +74,7 @@ object Lot {
 
   def empty: Lot =
     Lot(
-      UUID.randomUUID().toString,
+      UUID.randomUUID().toString, "Untitled",
       Location("59.95", "30.30", Address("", "", "", "")),
       1, 2, 3,
       List(Space("", ""), Space("", ""), Space("", "")),
