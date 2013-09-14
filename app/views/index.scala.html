@@ -28,7 +28,9 @@
             pano.readConfigUrl("/lot/" + id + "/out.xml");
         }
 
-        pano("pano", "@lots.head.id");
+        if (window.location.hash)
+            pano("pano", window.location.hash.substr(1));
+        else pano("pano", "@lots.head.id");
 
         @for(lot <- lots){
             pano("pre-@lot.id", "@lot.id");
