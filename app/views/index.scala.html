@@ -34,6 +34,10 @@
             pano("pre-@lot.id", "@lot.id");
         }
 
+        window.addEventListener('hashchange', function(event){
+            pano("pano", window.location.hash.substr(1));
+        });
+
     // hide URL field on the iPhone/iPod touch
         /*
         var map;
@@ -66,7 +70,7 @@
         @for(lot <- lots){
             <div class="col-md-3">
                 <div class="pre" id="pre-@lot.id"></div>
-                <a href="javascript:pano('pano', '@lot.id')"><h4>@lot.title</h4></a>
+                <a href="#@lot.id"><h4>@lot.title</h4></a>
             </div>
         }
         </div>
