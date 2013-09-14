@@ -55,7 +55,7 @@ object Lot {
   def toJson(obj:Lot) : JsValue =
     JsObject(Seq(
       "id" -> Json.toJson(obj.id),
-      "title" -> Json.toJson(obj.id),
+      "title" -> Json.toJson(obj.title),
       "location" -> Location.toJson(obj.location),
       "rooms" -> Json.toJson(obj.rooms),
       "level" -> Json.toJson(obj.level),

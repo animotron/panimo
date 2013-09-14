@@ -85,7 +85,7 @@ object Lot extends Controller {
       request.body.file("zip").map {
         zip =>
           val trg = new File(s"lot/$id")
-          trg.mkdir()
+          trg.mkdirs()
           val img = new File(trg, "images")
           if (img.exists())
             for (f <- img.listFiles) yield f.delete

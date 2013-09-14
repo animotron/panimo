@@ -7,7 +7,7 @@ import play.api.libs.json.{Json, JsArray}
 object Application extends Controller {
 
   def index = Action {
-    Ok(views.html.index("Welcome to Infostark"))
+    Ok(views.html.index("Welcome to Infostark", models.Lot.all))
   }
 
   def search = Action {
