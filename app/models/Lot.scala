@@ -92,7 +92,7 @@ object Lot {
   }
 
   def all : List[Lot] = {
-    new File(new java.io.File("./lot")).toDirectory.dirs.collect[String] {
+    val list : List[Lot] = new File(new java.io.File("./lot")).toDirectory.dirs.collect[String] {
       case d: Directory => d.name
     }.toList.collect{
       case id: String =>
@@ -102,6 +102,8 @@ object Lot {
         ) else
           empty.copy(id = id)
     }.toList
+    if (list.isEmpty) List[Lot](empty)
+    else list
   }
 
   def byId(id:String) : Lot = {
