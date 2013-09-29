@@ -40,7 +40,7 @@ object Lot {
       (obj \ "rooms").as[Int],
       (obj \ "level").as[Int],
       (obj \ "square").as[Int],
-      (obj \\ "spaces").seq.collect{
+      (obj \ "spaces").as[Seq[JsObject]].collect{
         case s : JsObject => Space.fromJson(s)
       }.toList,
       (obj \ "pets").as[String],
@@ -77,7 +77,7 @@ object Lot {
       UUID.randomUUID().toString, "Untitled",
       Location("59.95", "30.30", Address("", "", "", "")),
       1, 2, 3,
-      List(Space("", ""), Space("", ""), Space("", "")),
+      List(Space("main", "30"), Space("entry", "10"), Space("coock", "12")),
       "true",
       "", "", "", "", "", ""
     )
